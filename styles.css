@@ -58,7 +58,7 @@ body {
     backdrop-filter: blur(10px); /* 背景をぼかす（すりガラス効果） */
     border-radius: 16px; /* 角を丸くする */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 影を付ける */
-    padding: 10px 30px; /* 内側の余白 */
+    padding: 6px 30px; /* 内側の余白 */
 }
 
 /* ヘッダーの中身のレイアウト */
@@ -90,8 +90,9 @@ body {
 .main-nav .cta-button { 
     background-color: #C48753; 
     color: white; 
-    padding: 10px 20px; 
+    padding: 6px 16px; 
     border-radius: 8px; 
+    font-size: 14px;
 }
 
 
@@ -1405,7 +1406,7 @@ body {
 @media (max-width: 768px) {
     .floating-header {
         width: 80%;
-        padding: 8px 20px;
+        padding: 5px 20px;
         margin-right: 10px; /* モバイルでは右端から10px離す */
     }
     
