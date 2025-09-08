@@ -48,17 +48,17 @@ body {
     z-index: 1000;   /* 他の要素より手前に表示 */
 
     /* 横幅と右配置 */
-    width: 70%;
-    max-width: 800px; /* 最大幅を指定 */
+    width: 60%;
+    max-width: 700px; /* 最大幅を指定 */
     margin-left: auto; /* 右側に配置 */
     margin-right: 20px; /* 右端から20px離す */
 
     /* 見た目のデザイン */
     background-color: rgba(255, 255, 255, 0.9); /* 少し透明な白 */
     backdrop-filter: blur(10px); /* 背景をぼかす（すりガラス効果） */
-    border-radius: 16px; /* 角を丸くする */
+    border-radius: 8px; /* 角を丸くする */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 影を付ける */
-    padding: 4px 25px; /* 内側の余白 */
+    padding: 6px 30px; /* 内側の余白 */
 }
 
 /* ヘッダーの中身のレイアウト */
@@ -66,6 +66,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
 /* 以下はヘッダーの中身のダミーデザイン */
@@ -91,9 +92,199 @@ body {
 .main-nav .cta-button { 
     background-color: #C48753; 
     color: white; 
-    padding: 4px 12px; 
-    border-radius: 6px; 
+    padding: 10px 16px; 
+    border-radius: 8px; 
     font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.icon-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Metal Black Card Section */
+.product-section-metal {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.product-grid-metal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-panel {
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+.product-image-panel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.product-details-panel {
+    background-color: #ffffff;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-details-panel h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1C2A44;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.product-details-panel p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.product-details-panel .tags-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-details-panel .tags-container span {
+    background-color: #f0f0f0;
+    color: #666;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.product-details-panel .pricing-container {
+    margin-bottom: 30px;
+}
+
+.product-details-panel .final-price {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1C2A44;
+}
+
+.product-details-panel .tax-info {
+    font-size: 16px;
+    color: #666;
+    margin-left: 8px;
+}
+
+.product-details-panel .cta-button {
+    background-color: #C48753;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+}
+
+.product-details-panel .cta-button:hover {
+    background-color: #a06d42;
+}
+
+/* Wood Material Card Section */
+.product-section-wood {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.product-grid-wood {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Official Design Card Section */
+.product-section-official {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.product-grid-official {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Design Card Section */
+.product-section-custom {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.product-section-custom .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.product-grid-custom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -105,7 +296,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.png');
+    background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1258,10 +1449,12 @@ body {
 }
 
 .product-card-container {
-    background-color: #F0F5F1;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 24px;
-    padding: 100px !important;
-    min-height: 400px;
+    padding: 20px !important;
+    min-height: auto;
 }
 
 .product-grid {
@@ -1406,8 +1599,8 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .floating-header {
-        width: 80%;
-        padding: 3px 20px;
+        width: 75%;
+        padding: 4px 25px;
         margin-right: 10px; /* モバイルでは右端から10px離す */
     }
     

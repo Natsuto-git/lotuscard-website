@@ -12,13 +12,28 @@
 <body>
     <header class="floating-header">
         <nav class="main-nav">
-            <a href="#" class="logo">LotusCard</a>
             <ul>
                 <li><a href="#features">選ばれる理由</a></li>
-                <li><a href="#functionality">機能</a></li>
-                <li><a href="#pricing">料金プラン</a></li>
+                <li><a href="#about">LotusCardとは</a></li>
+                <li><a href="#testimonials">利用者の声</a></li>
+                <li><a href="#faq">よくある質問</a></li>
             </ul>
-            <a href="#create" class="cta-button">カードを選ぶ</a>
+            <div class="header-controls">
+                <a href="#pricing" class="cta-button">カードを選ぶ</a>
+                <a href="#account" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+                <a href="#cart" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -29,7 +44,7 @@
                 <h1>たった一枚で<br>あなたの個性を解き放つ</h1>
                 <p>もう、名刺交換で終わらない。<br>LotusCardが、あなたの価値を物語る。</p>
                 <div>
-                    <a href="#create" class="cta-button-primary">カードを選ぶ</a>
+                    <a href="#pricing" class="cta-button-primary">カードを選ぶ</a>
                     <a href="#business" class="cta-button-secondary">法人のお客様</a>
                 </div>
             </div>
@@ -102,23 +117,7 @@
             </div>
         </section>
 
-        <section class="why-us-section">
-            <div class="container">
-                <div class="why-us-grid">
-                    <div class="why-us-text-content">
-                        <p class="eyebrow-heading">Why Prairie Card</p>
-                        <h2>選ばれる理由</h2>
-                        <p>LotusCardのプロフィールページには趣味や職歴、どんなURLでも掲載可能です。見やすいページであらゆるシーンでの情報交換に対応しています。</p>
-                    </div>
-                    <div class="why-us-illustration-wrapper">
-                        <img src="why-us-illustration.png" alt="選ばれる理由のイラスト">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="about-section">
+        <section id="about" class="about-section">
             <div class="container">
                 <div class="about-grid">
                     <div class="about-content">
@@ -153,6 +152,21 @@
                         <img src="feature-3-illustration.png" alt="プロフィールページはアレンジ自在">
                         <h3>プロフィールページはアレンジ自在</h3>
                         <p>あなたのプロフィールページを無料で作成できます。更新も簡単。名刺では伝えきれない情報を伝えることができます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="why-us-section">
+            <div class="container">
+                <div class="why-us-grid">
+                    <div class="why-us-text-content">
+                        <p class="eyebrow-heading">Why Prairie Card</p>
+                        <h2>選ばれる理由</h2>
+                        <p>LotusCardのプロフィールページには趣味や職歴、どんなURLでも掲載可能です。見やすいページであらゆるシーンでの情報交換に対応しています。</p>
+                    </div>
+                    <div class="why-us-illustration-wrapper">
+                        <img src="why-us-illustration.png" alt="選ばれる理由のイラスト">
                     </div>
                 </div>
             </div>
@@ -318,55 +332,8 @@
             </div>
         </section>
 
-        <section class="corporate-logos-section">
-            <div class="container">
-                <h2 class="section-title">導入企業・団体様</h2>
-                <div class="logo-carousel-container">
-                    <div class="logo-carousel-track">
-                        <img src="company-logo-1.png" alt="企業ロゴ1">
-                        <img src="company-logo-2.png" alt="企業ロゴ2">
-                        <img src="company-logo-3.png" alt="企業ロゴ3">
-                        <img src="company-logo-4.png" alt="企業ロゴ4">
-                        <img src="company-logo-5.png" alt="企業ロゴ5">
-                        <img src="company-logo-6.png" alt="企業ロゴ6">
-                        <!-- Duplicate logos for seamless loop -->
-                        <img src="company-logo-1.png" alt="企業ロゴ1">
-                        <img src="company-logo-2.png" alt="企業ロゴ2">
-                        <img src="company-logo-3.png" alt="企業ロゴ3">
-                        <img src="company-logo-4.png" alt="企業ロゴ4">
-                        <img src="company-logo-5.png" alt="企業ロゴ5">
-                        <img src="company-logo-6.png" alt="企業ロゴ6">
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="media-features-section">
-            <div class="container">
-                <div class="heading-block">
-                    <p class="eyebrow-text">Media</p>
-                    <h2 class="section-title">メディア掲載</h2>
-                </div>
-                <div class="media-grid-container">
-                    <div class="media-grid">
-                        <img src="media-logo-1.png" alt="メディアロゴ1">
-                        <img src="media-logo-2.png" alt="メディアロゴ2">
-                        <img src="media-logo-3.png" alt="メディアロゴ3">
-                        <img src="media-logo-4.png" alt="メディアロゴ4">
-                        <img src="media-logo-5.png" alt="メディアロゴ5">
-                        <img src="media-logo-6.png" alt="メディアロゴ6">
-                        <img src="media-logo-7.png" alt="メディアロゴ7">
-                        <img src="media-logo-8.png" alt="メディアロゴ8">
-                        <img src="media-logo-9.png" alt="メディアロゴ9">
-                        <img src="media-logo-10.png" alt="メディアロゴ10">
-                        <img src="media-logo-11.png" alt="メディアロゴ11">
-                        <img src="media-logo-12.png" alt="メディアロゴ12">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonials-section">
+        <section id="testimonials" class="testimonials-section">
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow-text">User Voice</p>
@@ -377,7 +344,7 @@
                     <div class="testimonial-card">
                         <p class="testimonial-quote">自分の活動内容やスキル、SNSアカウントなどを自由に掲載できますし、デザインもカスタマイズできます。まさに、私が求めていた理想の名刺でしたね。</p>
                         <div class="testimonial-author-info">
-                            <img src="avatar-1.jpg" alt="河又 涼さん" class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="河又 涼さん" class="author-avatar">
                             <div class="author-details">
                                 <p class="author-name">河又 涼さん</p>
                                 <p class="author-title">株式会社イマイチ / Oisix Ra Kitchien</p>
@@ -388,7 +355,7 @@
                     <div class="testimonial-card">
                         <p class="testimonial-quote">実際LotusCardを使い始めてから、Facebookでのつながりの数や連絡する機会が、5〜6倍位増えました。</p>
                         <div class="testimonial-author-info">
-                            <img src="avatar-2.jpg" alt="杉本 英晴さん" class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="杉本 英晴さん" class="author-avatar">
                             <div class="author-details">
                                 <p class="author-name">杉本 英晴さん</p>
                                 <p class="author-title">インフィニティエージェント株式会社 / コミュニティーマネージャー</p>
@@ -399,7 +366,7 @@
                     <div class="testimonial-card">
                         <p class="testimonial-quote">相手に興味を持ってもらえたり、覚えてもらう、この体験はセルフブランディングの一環として、他の人と違う演出に役立っていますね。</p>
                         <div class="testimonial-author-info">
-                            <img src="avatar-3.jpg" alt="宮島 勇也さん" class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="宮島 勇也さん" class="author-avatar">
                             <div class="author-details">
                                 <p class="author-name">宮島 勇也さん</p>
                                 <p class="author-title">パナソニックホールディングス株式会社 / コーポレートDX・デジタルイノベーション本部</p>
@@ -410,7 +377,7 @@
                     <div class="testimonial-card">
                         <p class="testimonial-quote">導入して、一番の変化は、情報発信の幅が格段に広がったことです。相手に合わせて情報をカスタマイズできるので、コミュニケーションが円滑に進みます。</p>
                         <div class="testimonial-author-info">
-                            <img src="avatar-4.jpg" alt="堀 哲也さん" class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="堀 哲也さん" class="author-avatar">
                             <div class="author-details">
                                 <p class="author-name">堀 哲也さん</p>
                                 <p class="author-title">株式会社マネーフォワード / プロダクトマネージャー・公認会計士</p>
@@ -421,7 +388,7 @@
                     <div class="testimonial-card">
                         <p class="testimonial-quote">LotusCardをお互いが持っていると、なぜか『お久しぶり』感覚があって、この「人と人とが繋る」感覚が生まれるんですよね。</p>
                         <div class="testimonial-author-info">
-                            <img src="avatar-5.jpg" alt="小田 裕和さん" class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="小田 裕和さん" class="author-avatar">
                             <div class="author-details">
                                 <p class="author-name">小田 裕和さん</p>
                                 <p class="author-title">株式会社MIMIGURI / インストラクショナルデザイナー・Co-founder</p>
@@ -432,7 +399,7 @@
                     <div class="testimonial-card">
                         <p class="testimonial-quote">日常の延長線上にある行動が、世の中を良くする仕組みにつながっているのも魅力的です。名刺交換のたびに森林保全に貢献することができます。</p>
                         <div class="testimonial-author-info">
-                            <img src="avatar-6.jpg" alt="田中 苑子さん" class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="田中 苑子さん" class="author-avatar">
                             <div class="author-details">
                                 <p class="author-name">田中 苑子さん</p>
                                 <p class="author-title">株式会社Loeries and Company</p>
@@ -446,120 +413,104 @@
         </section>
 
 
-        <section class="product-showcase-section">
+        <section id="pricing" class="product-section-custom">
             <div class="container">
                 <div class="heading-container">
                     <p class="eyebrow-text">Card Design</p>
                     <h2 class="main-headline">カード一覧</h2>
                 </div>
-                <div class="product-card-container">
-                    <div class="product-grid">
-                        <div class="product-image-wrapper">
-                            <img src="custom-design-card.jpg" alt="オリジナルデザインカード">
-                        </div>
-                        <div class="product-details">
-                            <h3>あなただけのオリジナルデザイン</h3>
-                            <p>両面を自由にデザイン可能な、あなただけのデジタル名刺。操作も簡単、Web上のツールを使って、文字を配置したり、好きな画像をアップロードするだけで完成します。</p>
-                            <div class="tags-container">
-                                <span>月額0円</span>
-                                <span>送料無料</span>
-                            </div>
-                            <div class="pricing-container">
-                                <p class="discount-offer">7日間限定 500円OFF！</p>
-                                <div class="price-line">
-                                    <del>4,980円</del>
-                                    <span class="final-price">4,480円</span>
-                                    <span class="tax-info">(税込)</span>
-                                </div>
-                            </div>
-                            <a href="#create-custom" class="cta-button">今すぐカードを作る</a>
+            </div>
+            <div class="product-grid-custom">
+                <div class="product-image-panel">
+                    <img src="images/Gemini_Generated_Image_o0bovvo0bovvo0bo.png" alt="オリジナルデザインカード">
+                </div>
+                <div class="product-details-panel">
+                    <h3>あなただけのオリジナルデザイン</h3>
+                    <p>両面を自由にデザイン可能な、あなただけのデジタル名刺。操作も簡単、Web上のツールを使って、文字を配置したり、好きな画像をアップロードするだけで完成します。</p>
+                    <div class="tags-container">
+                        <span>月額0円</span>
+                        <span>送料無料</span>
+                    </div>
+                    <div class="pricing-container">
+                        <p class="discount-offer">7日間限定 500円OFF！</p>
+                        <div class="price-line">
+                            <del>4,980円</del>
+                            <span class="final-price">4,480円</span>
+                            <span class="tax-info">(税込)</span>
                         </div>
                     </div>
+                    <a href="#create-custom" class="cta-button">今すぐカードを作る</a>
                 </div>
             </div>
         </section>
 
-        <section class="product-showcase-section">
-            <div class="container">
-                <div class="product-card-container" style="background-color: #F5F3EE;">
-                    <div class="product-grid">
-                        <div class="product-image-wrapper">
-                            <img src="wood-material-card.jpg" alt="木材素材カード">
-                        </div>
-                        <div class="product-details">
-                            <h3>木材素材カード</h3>
-                            <p>日本初の木材素材を使用したデジタル名刺です。自然素材で温かみがあり、1点1点違った風合いを感じられます。環境に配慮した素材の選択もご検討ください（＊自社調べ）</p>
-                            <div class="tags-container">
-                                <span>月額0円</span>
-                                <span>送料無料</span>
-                            </div>
-                            <div class="pricing-container">
-                                <p class="discount-offer">7日間限定 500円OFF！</p>
-                                <div class="price-line">
-                                    <del>4,480円</del>
-                                    <span class="final-price">3,980円</span>
-                                    <span class="tax-info">(税込)</span>
-                                </div>
-                            </div>
-                            <a href="#wood-card" class="cta-button">詳しく見る</a>
+        <section class="product-section-wood">
+            <div class="product-grid-wood">
+                <div class="product-image-panel">
+                    <img src="images/Gemini_Generated_Image_jks1kejks1kejks1.png" alt="木材素材カード">
+                </div>
+                <div class="product-details-panel">
+                    <h3>木材素材カード</h3>
+                    <p>日本初の木材素材を使用したデジタル名刺です。自然素材で温かみがあり、1点1点違った風合いを感じられます。環境に配慮した素材の選択もご検討ください（＊自社調べ）</p>
+                    <div class="tags-container">
+                        <span>月額0円</span>
+                        <span>送料無料</span>
+                    </div>
+                    <div class="pricing-container">
+                        <p class="discount-offer">7日間限定 500円OFF！</p>
+                        <div class="price-line">
+                            <del>4,480円</del>
+                            <span class="final-price">3,980円</span>
+                            <span class="tax-info">(税込)</span>
                         </div>
                     </div>
+                    <a href="#wood-card" class="cta-button">詳しく見る</a>
                 </div>
             </div>
         </section>
 
-        <section class="product-showcase-section">
-            <div class="container">
-                <div class="product-card-container" style="background-color: #F0F2F5;">
-                    <div class="product-grid">
-                        <div class="product-image-wrapper">
-                            <img src="metal-black-card.jpg" alt="メタルブラック - 金属素材カード">
-                        </div>
-                        <div class="product-details">
-                            <h3>メタルブラック - 金属素材カード</h3>
-                            <p>金属素材で製造されているデジタル名刺です。高級感と重厚感のあるカードとなり、ワンランク上の体験をお届けいたします。</p>
-                            <div class="tags-container">
-                                <span>月額0円</span>
-                                <span>送料無料</span>
-                            </div>
-                            <div class="pricing-container">
-                                <div class="price-line">
-                                    <span class="final-price">15,000円</span>
-                                    <span class="tax-info">(税込)</span>
-                                </div>
-                            </div>
-                            <a href="#metal-card" class="cta-button">詳しく見る</a>
-                        </div>
+        <section class="product-section-metal">
+            <div class="product-grid-metal">
+                <div class="product-image-panel">
+                    <img src="metal-black-card.jpg" alt="メタルブラック - 金属素材カード">
+                </div>
+                <div class="product-details-panel">
+                    <h3>メタルブラック - 金属素材カード</h3>
+                    <p>金属素材で製造されているデジタル名刺です。高級感と重厚感のあるカードとなり、ワンランク上の体験をお届けいたします。</p>
+                    <div class="tags-container">
+                        <span>月額0円</span>
+                        <span>送料無料</span>
                     </div>
+                    <div class="pricing-container">
+                        <span class="final-price">15,000円</span>
+                        <span class="tax-info">(税込)</span>
+                    </div>
+                    <a href="#metal-card" class="cta-button">詳しく見る</a>
                 </div>
             </div>
         </section>
 
-        <section class="product-showcase-section">
-            <div class="container">
-                <div class="product-card-container" style="background-color: #F5F0F3;">
-                    <div class="product-grid">
-                        <div class="product-image-wrapper">
-                            <img src="official-design-card.jpg" alt="公式デザインカード">
-                        </div>
-                        <div class="product-details">
-                            <h3>公式デザイン</h3>
-                            <p>デザインが準備されているカードをお求めの方はこちら。グラデーション・シンプル・幾何学模様などの多様なデザインの中からお気に入りのデザインを見つけてください。まずはデジタル名刺を試したい方にもおすすめ。</p>
-                            <div class="tags-container">
-                                <span>月額0円</span>
-                                <span>送料無料</span>
-                            </div>
-                            <div class="pricing-container">
-                                <p class="discount-offer">7日間限定 500円OFF！</p>
-                                <div class="price-line">
-                                    <del>3,980円</del>
-                                    <span class="final-price">3,480円</span>
-                                    <span class="tax-info">(税込)</span>
-                                </div>
-                            </div>
-                            <a href="#official-design" class="cta-button">詳しく見る</a>
+        <section class="product-section-official">
+            <div class="product-grid-official">
+                <div class="product-image-panel">
+                    <img src="official-design-card.jpg" alt="公式デザインカード">
+                </div>
+                <div class="product-details-panel">
+                    <h3>公式デザイン</h3>
+                    <p>デザインが準備されているカードをお求めの方はこちら。グラデーション・シンプル・幾何学模様などの多様なデザインの中からお気に入りのデザインを見つけてください。まずはデジタル名刺を試したい方にもおすすめ。</p>
+                    <div class="tags-container">
+                        <span>月額0円</span>
+                        <span>送料無料</span>
+                    </div>
+                    <div class="pricing-container">
+                        <p class="discount-offer">7日間限定 500円OFF！</p>
+                        <div class="price-line">
+                            <del>3,980円</del>
+                            <span class="final-price">3,480円</span>
+                            <span class="tax-info">(税込)</span>
                         </div>
                     </div>
+                    <a href="#official-design" class="cta-button">詳しく見る</a>
                 </div>
             </div>
         </section>
@@ -592,7 +543,7 @@
             </div>
         </section>
 
-        <section class="faq-cta-section">
+        <section id="faq" class="faq-cta-section">
             <div class="container">
                 <div class="faq-cta-card">
                     <h2>作り方、使い方に困ったら</h2>
