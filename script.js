@@ -24,3 +24,25 @@ window.addEventListener('load', function() {
         });
     }, 100);
 });
+
+// トップに戻るボタンの機能
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    // スクロール位置に応じてボタンの表示/非表示を切り替え
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    // ボタンクリック時にヒーローセクションにスムーズスクロール
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
