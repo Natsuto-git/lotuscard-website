@@ -423,7 +423,7 @@ section {
     font-size: 22px; /* 一つ前の変更前のサイズに戻す */
     line-height: 1.8; /* より読みやすい行間 */
     text-align: center;
-    margin-bottom: 24px; /* 一つ前の変更前のサイズに戻す */
+    margin-bottom: 40px; /* 行間を広げる */
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -1394,7 +1394,7 @@ section {
     .mission-section p {
         font-size: 15px;
         line-height: 1.6;
-        margin-bottom: 18px;
+        margin-bottom: 30px;
         text-align: center;
     }
     
@@ -1733,7 +1733,7 @@ section {
     .mission-section p {
         font-size: 14px;
         line-height: 1.5;
-        margin-bottom: 16px;
+        margin-bottom: 25px;
         text-align: center;
     }
     
