@@ -329,6 +329,7 @@ section {
 /* デスクトップ用の背景画像最適化 */
 @media (min-width: 1024px) {
     .hero-section {
+        background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
         background-size: cover;
         background-position: center center;
     }
