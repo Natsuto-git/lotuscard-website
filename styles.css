@@ -402,7 +402,7 @@ section {
 .mission-section h2 {
     color: #D4AF37; /* Gold */
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 48px; /* 一つ前の変更前のサイズに戻す */
+    font-size: 42px; /* 少し小さく */
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 40px; /* 一つ前の変更前のサイズに戻す */
@@ -701,7 +701,7 @@ section {
     font-size: 24px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9); /* 白に近い色 */
-    margin-bottom: 48px;
+    margin-bottom: 80px;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -713,7 +713,7 @@ section {
 .features-list li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 48px;
+    margin-bottom: 80px;
     font-size: 22px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8); /* 白に近い色 */
@@ -1518,11 +1518,11 @@ section {
     .showcase-content-wrapper p {
         font-size: 15px;
         line-height: 1.5;
-        margin-bottom: 24px;
+        margin-bottom: 40px;
     }
     
     .features-list li {
-        margin-bottom: 16px;
+        margin-bottom: 40px;
         font-size: 14px;
         line-height: 1.4;
     }
@@ -1785,11 +1785,11 @@ section {
     .showcase-content-wrapper p {
         font-size: 13px;
         line-height: 1.4;
-        margin-bottom: 20px;
+        margin-bottom: 35px;
     }
     
     .features-list li {
-        margin-bottom: 12px;
+        margin-bottom: 35px;
         font-size: 12px;
         line-height: 1.3;
     }
