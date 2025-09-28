@@ -1691,13 +1691,14 @@ section {
     /* ヒーローセクションの小画面最適化 */
     .hero-section {
         background-color: #1C2A44; /* フォールバック背景色 */
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
+        background-repeat: no-repeat;
         background-attachment: scroll;
         background-clip: border-box;
         background-origin: border-box;
-        height: 100vh;
-        min-height: 100vh;
+        height: auto;
+        min-height: auto;
         margin: 0;
         padding: 0;
     }
@@ -1706,7 +1707,9 @@ section {
     .hero-content {
         padding: 0 15px;
         max-width: 100%;
-        margin-top: -100px;
+        margin-top: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     
     .hero-section p {
@@ -1718,7 +1721,7 @@ section {
     .mission-section {
         padding: 0;
         margin: 0;
-        margin-top: -10px; /* より大きなネガティブマージンで空白を削除 */
+        margin-top: 0;
         min-height: 100vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
