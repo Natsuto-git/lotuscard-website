@@ -294,7 +294,7 @@ section {
     justify-content: center;
     overflow: hidden;
     background-color: #1C2A44; /* フォールバック背景色 */
-    background-image: url('images/herosection.phone.back.jpg');
+    background-image: url('images/Gemini_Generated_Image_3ewsya3ewsya3ews.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -319,7 +319,7 @@ section {
 @media (min-width: 1024px) {
     .hero-section {
         background-color: #1C2A44; /* フォールバック背景色 */
-        background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
+        background-image: url('images/Gemini_Generated_Image_3ewsya3ewsya3ews.jpg');
         background-size: cover;
         background-position: center center;
         height: 80vh;
@@ -1591,7 +1591,7 @@ section {
     
     /* ヒーローセクションの背景画像最適化 */
     .hero-section {
-        background-image: url('images/herosection.phone.back.jpg');
+        background-image: url('images/Gemini_Generated_Image_3ewsya3ewsya3ews.jpg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
