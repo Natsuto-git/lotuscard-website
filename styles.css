@@ -289,6 +289,7 @@ section {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
     padding: 0;
     margin-top: -100px; /* 完全に空白を削除するネガティブマージン */
     padding-top: 100px; /* ヘッダーとの適切な間隔 */
@@ -1245,6 +1246,20 @@ section {
         line-height: 1.2;
     }
     
+    /* ヒーローセクションのモバイル最適化 */
+    .hero-section {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        min-height: 100vh;
+        height: auto;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+    
     .mission-section {
         padding: 80px 0;
         min-height: 70vh;
@@ -1447,6 +1462,18 @@ section {
     html {
         -webkit-overflow-scrolling: touch;
     }
+    
+    /* ヒーローセクションの背景画像最適化 */
+    .hero-section {
+        background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1490,6 +1517,21 @@ section {
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 30px;
+    }
+    
+    /* ヒーローセクションの小画面最適化 */
+    .hero-section {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        min-height: 100vh;
+        height: auto;
+        padding-top: 80px;
+    }
+    
+    .hero-content {
+        padding: 0 10px;
+        max-width: 100%;
     }
     
     .mission-section {
