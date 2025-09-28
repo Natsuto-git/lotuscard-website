@@ -124,7 +124,7 @@ main {
 .main-nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 8px;
     margin: 0;
     padding: 0;
 }
@@ -1250,7 +1250,7 @@ section {
     }
     
     .main-nav ul {
-        gap: 12px;
+        gap: 6px;
         flex-wrap: wrap;
     }
     
@@ -1563,7 +1563,7 @@ section {
     }
     
     .main-nav ul {
-        gap: 8px;
+        gap: 4px;
     }
     
     .main-nav a {
