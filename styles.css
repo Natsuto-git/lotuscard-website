@@ -100,7 +100,7 @@ main {
         0 8px 32px rgba(0, 0, 0, 0.03),
         0 4px 16px rgba(0, 0, 0, 0.02),
         inset 0 1px 0 rgba(255, 255, 255, 0.05); /* 極めて軽い影と内側のハイライト */
-    padding: 12px 40px; /* より余裕のある内側の余白 */
+    padding: 6px 20px; /* より細いヘッダー */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* スムーズなアニメーション */
 }
 
@@ -1244,7 +1244,7 @@ section {
 @media (max-width: 768px) {
     .floating-header {
         width: 90%;
-        padding: 8px 20px;
+        padding: 4px 15px;
         margin-right: 5px;
         top: 0;
     }
@@ -1557,7 +1557,7 @@ section {
 @media (max-width: 480px) {
     .floating-header {
         width: 95%;
-        padding: 6px 15px;
+        padding: 3px 12px;
         margin-right: 2px;
         top: 0;
     }
