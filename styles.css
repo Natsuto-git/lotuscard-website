@@ -117,7 +117,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px; /* ナビゲーションリンクとコントロールエリアの間隔 */
+    gap: 20px; /* ナビゲーションリンクとコントロールエリアの間隔 */
 }
 
 /* 以下はヘッダーの中身のダミーデザイン */
@@ -168,9 +168,9 @@ main {
 .main-nav .cta-button {
     background: linear-gradient(135deg, #D4AF37 0%, #C4A030 100%); /* ゴールドグラデーション */
     color: #1C2A44; /* Deep Navy */
-    padding: 8px 16px; /* より小さなパディング */
-    border-radius: 8px; /* より小さな角 */
-    font-size: 12px;
+    padding: 6px 12px; /* よりコンパクトなパディング */
+    border-radius: 6px; /* より小さな角 */
+    font-size: 11px;
     font-weight: 700; /* より太いフォント */
     text-decoration: none;
     display: flex;
@@ -195,7 +195,7 @@ main {
 .header-controls {
     display: flex;
     align-items: center;
-    gap: 15px; /* ボタンとアイコンの間隔 */
+    gap: 10px; /* ボタンとアイコンの間隔 */
     flex-shrink: 0; /* 縮小を防止 */
 }
 
@@ -1314,7 +1314,7 @@ section {
     }
     
     .header-controls {
-        gap: 8px;
+        gap: 6px;
     }
     
     .cta-button {
@@ -1650,7 +1650,7 @@ section {
     }
     
     .header-controls {
-        gap: 6px;
+        gap: 4px;
     }
     
     .cta-button-primary,
