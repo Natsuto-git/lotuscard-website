@@ -285,7 +285,7 @@ section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
+    background-image: url('images/herosection.back.jpg');
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -307,7 +307,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
+    background-image: url('images/herosection.back.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1547,7 +1547,7 @@ section {
     
     /* ヒーローセクションの背景画像最適化 */
     .hero-section {
-        background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
+        background-image: url('images/herosection.back.jpg');
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
