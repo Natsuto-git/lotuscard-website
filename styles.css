@@ -656,19 +656,20 @@ section {
 
 .showcase-content-wrapper h2 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 36px;
+    font-size: 48px;
     font-weight: 700;
     color: #D4AF37; /* Gold */
-    margin-bottom: 24px;
+    margin-bottom: 40px;
     text-align: left;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
 }
 
 .showcase-content-wrapper p {
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 24px;
+    line-height: 1.8;
     color: rgba(255, 255, 255, 0.9); /* 白に近い色 */
-    margin-bottom: 32px;
+    margin-bottom: 48px;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -680,9 +681,9 @@ section {
 .features-list li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 16px;
-    font-size: 16px;
-    line-height: 1.6;
+    margin-bottom: 48px;
+    font-size: 22px;
+    line-height: 1.8;
     color: rgba(255, 255, 255, 0.8); /* 白に近い色 */
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
