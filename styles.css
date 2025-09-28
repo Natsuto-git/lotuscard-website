@@ -14,16 +14,19 @@ html {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
+    background-color: #1C2A44; /* ヒーローセクションと同じダークブルー */
+    min-height: 100vh;
 }
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #F9F6F0; /* Ivory White */
+    background-color: #1C2A44; /* ヒーローセクションと同じダークブルー */
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 /* --- Typography System --- */
@@ -289,6 +292,7 @@ section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-color: #1C2A44; /* フォールバック背景色 */
     background-image: url('images/herosection.phone.back.jpg');
     background-size: contain;
     background-position: center center;
@@ -313,6 +317,7 @@ section {
 /* デスクトップ用の背景画像最適化 */
 @media (min-width: 1024px) {
     .hero-section {
+        background-color: #1C2A44; /* フォールバック背景色 */
         background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
         background-size: cover;
         background-position: center center;
@@ -324,6 +329,7 @@ section {
 /* タブレット用の背景画像最適化 */
 @media (min-width: 768px) and (max-width: 1023px) {
     .hero-section {
+        background-color: #1C2A44; /* フォールバック背景色 */
         background-size: contain;
         background-position: center center;
         height: 100vh;
@@ -1294,6 +1300,7 @@ section {
     
     /* ヒーローセクションのモバイル最適化 */
     .hero-section {
+        background-color: #1C2A44; /* フォールバック背景色 */
         background-size: contain;
         background-position: center center;
         background-attachment: scroll;
@@ -1612,6 +1619,7 @@ section {
     
     /* ヒーローセクションの小画面最適化 */
     .hero-section {
+        background-color: #1C2A44; /* フォールバック背景色 */
         background-size: contain;
         background-position: center center;
         background-attachment: scroll;
