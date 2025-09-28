@@ -290,10 +290,7 @@ section {
     background-position: center center;
     background-repeat: no-repeat;
     padding: 0;
-    margin-top: -100px; /* 完全に空白を削除するネガティブマージン */
-    padding-top: 100px; /* ヘッダーとの適切な間隔 */
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
 }
 
 .hero-section::before {
@@ -1292,6 +1289,8 @@ section {
         background-origin: border-box;
         min-height: 100vh;
         height: auto;
+        margin: 0;
+        padding: 0;
     }
     
     
@@ -1606,7 +1605,8 @@ section {
         background-origin: border-box;
         min-height: 100vh;
         height: auto;
-        padding-top: 80px;
+        margin: 0;
+        padding: 0;
     }
     
     
