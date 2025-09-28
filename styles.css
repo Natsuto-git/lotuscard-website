@@ -349,7 +349,7 @@ section {
 }
 
 .hero-section h1 {
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 24px;
     text-shadow: 
         0 8px 32px rgba(28, 42, 68, 0.8),
@@ -1310,7 +1310,7 @@ section {
     }
     
     .hero-section h1 {
-        font-size: 22px;
+        font-size: 24px;
     }
     
     .header-controls {
@@ -1646,7 +1646,7 @@ section {
     }
     
     .hero-section h1 {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .header-controls {
