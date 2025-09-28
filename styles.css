@@ -282,8 +282,8 @@ section {
 
 /* --- Hero Section --- */
 .hero-section {
-    height: 100vh;
-    min-height: 100vh;
+    height: auto;
+    min-height: auto;
     position: relative;
     display: flex;
     align-items: center;
@@ -312,10 +312,10 @@ section {
 @media (min-width: 1024px) {
     .hero-section {
         background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
-        height: 100vh;
-        min-height: 100vh;
+        height: auto;
+        min-height: auto;
     }
 }
 
@@ -324,8 +324,8 @@ section {
     .hero-section {
         background-size: contain;
         background-position: center center;
-        height: 100vh;
-        min-height: 100vh;
+        height: auto;
+        min-height: auto;
     }
 }
 
@@ -1296,8 +1296,8 @@ section {
         background-attachment: scroll;
         background-clip: border-box;
         background-origin: border-box;
-        height: 100vh;
-        min-height: 100vh;
+        height: auto;
+        min-height: auto;
         margin: 0;
         padding: 0;
     }
@@ -1613,8 +1613,8 @@ section {
         background-attachment: scroll;
         background-clip: border-box;
         background-origin: border-box;
-        height: 100vh;
-        min-height: 100vh;
+        height: auto;
+        min-height: auto;
         margin: 0;
         padding: 0;
     }
