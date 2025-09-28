@@ -134,7 +134,7 @@ main {
     text-decoration: none;
     color: #FFFFFF; /* 白色 */
     font-weight: 600;
-    font-size: 15px; /* より大きなフォントサイズ */
+    font-size: 13px; /* より小さなフォントサイズ */
     font-family: system-ui, -apple-system, sans-serif;
     letter-spacing: 0.5px; /* 文字間隔を調整 */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -168,9 +168,9 @@ main {
 .main-nav .cta-button {
     background: linear-gradient(135deg, #D4AF37 0%, #C4A030 100%); /* ゴールドグラデーション */
     color: #1C2A44; /* Deep Navy */
-    padding: 12px 24px; /* より余裕のあるパディング */
-    border-radius: 12px; /* より丸い角 */
-    font-size: 14px;
+    padding: 8px 16px; /* より小さなパディング */
+    border-radius: 8px; /* より小さな角 */
+    font-size: 12px;
     font-weight: 700; /* より太いフォント */
     text-decoration: none;
     display: flex;
@@ -1286,7 +1286,7 @@ section {
     }
     
     .main-nav a {
-        font-size: 12px;
+        font-size: 11px;
     }
     
     .features-grid {
@@ -1622,7 +1622,7 @@ section {
     }
     
     .main-nav a {
-        font-size: 11px;
+        font-size: 10px;
     }
     
     .features-grid {
