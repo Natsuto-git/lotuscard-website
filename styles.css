@@ -379,7 +379,7 @@ section {
     color: white;
     padding: 0;
     margin: 0;
-    margin-top: -10px; /* より大きなネガティブマージンで空白を削除 */
+    margin-top: -50px; /* 大幅なネガティブマージンで空白を完全削除 */
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -1322,7 +1322,7 @@ section {
     .mission-section {
         padding: 0;
         margin: 0;
-        margin-top: -10px; /* より大きなネガティブマージンで空白を削除 */
+        margin-top: -50px; /* 大幅なネガティブマージンで空白を完全削除 */
         min-height: 100vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
