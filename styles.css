@@ -319,7 +319,7 @@ section {
 @media (min-width: 1024px) {
     .hero-section {
         background-color: #1C2A44; /* フォールバック背景色 */
-        background-image: url('images/Gemini_Generated_Image_3ewsya3ewsya3ews.jpg');
+        background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
         background-size: cover;
         background-position: center center;
         height: 80vh;
