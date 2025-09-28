@@ -1287,6 +1287,12 @@ section {
         font-size: 11px;
     }
     
+    .main-nav .cta-button {
+        padding: 6px 12px;
+        font-size: 10px;
+        height: 35px;
+    }
+    
     .features-grid {
         gap: 40px;
         margin-top: 60px;
@@ -1621,6 +1627,12 @@ section {
     
     .main-nav a {
         font-size: 10px;
+    }
+    
+    .main-nav .cta-button {
+        padding: 5px 10px;
+        font-size: 9px;
+        height: 30px;
     }
     
     .features-grid {
