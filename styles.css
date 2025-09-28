@@ -358,6 +358,7 @@ section {
     padding: 0 20px;
     z-index: 2;
     position: relative;
+    margin-top: -100px;
 }
 
 .hero-section h1 {
@@ -1329,6 +1330,7 @@ section {
     .hero-content {
         padding: 0 15px;
         max-width: 100%;
+        margin-top: -80px;
     }
     
     .mission-section {
@@ -1656,6 +1658,7 @@ section {
     .hero-content {
         padding: 0 10px;
         max-width: 100%;
+        margin-top: -60px;
     }
     
     .mission-section {
