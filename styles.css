@@ -272,9 +272,9 @@ main {
     transform: scale(1.1);
 }
 
-/* --- Sections with Generous Spacing --- */
+/* --- Sections with Reduced Spacing --- */
 section {
-    padding: 120px 20px;
+    padding: 60px 20px;
 }
 
 /* --- Hero Section --- */
@@ -364,8 +364,8 @@ section {
         radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
         linear-gradient(135deg, #1C2A44 0%, #0F1A2E 25%, #1C2A44 50%, #0F1A2E 75%, #1C2A44 100%);
     color: white;
-    padding: 200px 0; /* 横の余白を完全に除去 */
-    min-height: 100vh; /* 画面の高さの100%を確保 */
+    padding: 80px 0; /* 余白を削減 */
+    min-height: 60vh; /* 高さを削減 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1302,8 +1302,8 @@ section {
     }
     
     .mission-section {
-        padding: 80px 0;
-        min-height: 70vh;
+        padding: 40px 0;
+        min-height: 50vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
@@ -1617,8 +1617,8 @@ section {
     }
     
     .mission-section {
-        padding: 60px 0;
-        min-height: 60vh;
+        padding: 30px 0;
+        min-height: 40vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
