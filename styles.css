@@ -1608,7 +1608,7 @@ section {
 @media (max-width: 480px) {
     .floating-header {
         width: 98%;
-        padding: 3px 12px;
+        padding: 2px 12px;
         margin-right: 2px;
         top: 0;
     }
@@ -1652,9 +1652,9 @@ section {
     }
     
     h1 {
-        font-size: 28px;
-        line-height: 1.2;
-        margin-bottom: 24px;
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 20px;
         text-align: center;
     }
     
@@ -1683,21 +1683,21 @@ section {
     }
     
     .section-title {
-        font-size: 22px;
-        margin-bottom: 28px;
+        font-size: 20px;
+        margin-bottom: 24px;
         text-align: center;
     }
     
     /* ヒーローセクションの小画面最適化 */
     .hero-section {
         background-color: #1C2A44; /* フォールバック背景色 */
-        background-size: contain;
+        background-size: cover;
         background-position: center center;
         background-attachment: scroll;
         background-clip: border-box;
         background-origin: border-box;
-        height: 80vh;
-        min-height: 80vh;
+        height: 100vh;
+        min-height: 100vh;
         margin: 0;
         padding: 0;
     }
@@ -1706,7 +1706,13 @@ section {
     .hero-content {
         padding: 0 15px;
         max-width: 100%;
-        margin-top: -200px;
+        margin-top: -100px;
+    }
+    
+    .hero-section p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 28px;
     }
     
     .mission-section {
