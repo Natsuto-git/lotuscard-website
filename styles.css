@@ -506,8 +506,8 @@ section {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 60px;
+    gap: 60px;
+    margin-top: 80px;
 }
 
 .about-features-section .feature-card {
@@ -937,12 +937,42 @@ section {
 }
 
 /* Features Section Icons */
+.features-section .feature-item {
+    background-color: white;
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 30px;
+}
+
+.features-section .feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
 .features-section .feature-item img {
     width: 200px;
     height: 120px;
     margin-bottom: 24px;
     border-radius: 12px;
     object-fit: cover;
+}
+
+.features-section .feature-item h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1C2A44;
+    margin-bottom: 20px;
+}
+
+.features-section .feature-item p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 0;
 }
 
 .features-section-detailed .feature-item h3 {
@@ -1259,6 +1289,26 @@ section {
         font-size: 12px;
     }
     
+    .features-grid {
+        gap: 40px;
+        margin-top: 60px;
+    }
+    
+    .features-section .feature-item {
+        padding: 30px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .features-section .feature-item h3 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+    
+    .features-section .feature-item p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
     .header-controls {
         gap: 8px;
     }
@@ -1569,6 +1619,26 @@ section {
     
     .main-nav a {
         font-size: 11px;
+    }
+    
+    .features-grid {
+        gap: 30px;
+        margin-top: 50px;
+    }
+    
+    .features-section .feature-item {
+        padding: 25px 15px;
+        margin-bottom: 15px;
+    }
+    
+    .features-section .feature-item h3 {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+    
+    .features-section .feature-item p {
+        font-size: 13px;
+        line-height: 1.5;
     }
     
     .header-controls {
