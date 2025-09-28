@@ -290,6 +290,8 @@ section {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: border-box;
     padding: 0;
     margin-top: -100px; /* 完全に空白を削除するネガティブマージン */
     padding-top: 100px; /* ヘッダーとの適切な間隔 */
@@ -1251,6 +1253,8 @@ section {
         background-size: cover;
         background-position: center center;
         background-attachment: scroll;
+        background-clip: border-box;
+        background-origin: border-box;
         min-height: 100vh;
         height: auto;
     }
@@ -1470,9 +1474,14 @@ section {
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: scroll;
+        background-clip: border-box;
+        background-origin: border-box;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
+        -webkit-background-position: center center;
+        -moz-background-position: center center;
+        -o-background-position: center center;
     }
 }
 
@@ -1524,6 +1533,8 @@ section {
         background-size: cover;
         background-position: center center;
         background-attachment: scroll;
+        background-clip: border-box;
+        background-origin: border-box;
         min-height: 100vh;
         height: auto;
         padding-top: 80px;
