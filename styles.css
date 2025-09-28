@@ -624,8 +624,8 @@ section {
         radial-gradient(circle at 40% 40%, rgba(80, 80, 80, 0.2) 0%, transparent 50%),
         linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 25%, #2A2A2A 50%, #1E1E1E 75%, #2C2C2C 100%);
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    padding: 200px 0; /* より広い縦の余白 */
-    min-height: 100vh; /* 画面の高さの100%を確保 */
+    padding: 300px 0; /* より広い縦の余白 */
+    min-height: 120vh; /* 画面の高さの120%を確保 */
     width: 100vw; /* 画面幅の100%を確保 */
     margin-left: calc(-50vw + 50%); /* 画面の左端まで拡張 */
     margin-right: calc(-50vw + 50%); /* 画面の右端まで拡張 */
@@ -1452,8 +1452,8 @@ section {
     }
     
     .product-showcase {
-        padding: 120px 0; /* タブレットでの適切な余白 */
-        min-height: 80vh;
+        padding: 180px 0; /* タブレットでの適切な余白 */
+        min-height: 100vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
@@ -1489,8 +1489,8 @@ section {
     
     
     .product-showcase {
-        padding: 60px 0;
-        min-height: 60vh;
+        padding: 120px 0;
+        min-height: 80vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
