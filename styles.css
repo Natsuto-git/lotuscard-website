@@ -286,7 +286,7 @@ section {
     justify-content: center;
     overflow: hidden;
     background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -299,6 +299,22 @@ section {
     margin-right: 0;
 }
 
+/* 背景画像のフォールバック設定 */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0.8;
+}
+
 .hero-section::before {
     content: '';
     position: absolute;
@@ -308,6 +324,31 @@ section {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.15);
     z-index: 1;
+}
+
+/* デスクトップ用の背景画像最適化 */
+@media (min-width: 1024px) {
+    .hero-section {
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .hero-section::after {
+        display: none;
+    }
+}
+
+/* タブレット用の背景画像最適化 */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-section {
+        background-size: contain;
+        background-position: center center;
+    }
+    
+    .hero-section::after {
+        background-size: cover;
+        opacity: 0.6;
+    }
 }
 
 .hero-content {
@@ -1250,13 +1291,19 @@ section {
     
     /* ヒーローセクションのモバイル最適化 */
     .hero-section {
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
         background-attachment: scroll;
         background-clip: border-box;
         background-origin: border-box;
         min-height: 100vh;
         height: auto;
+    }
+    
+    .hero-section::after {
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.7;
     }
     
     .hero-content {
@@ -1470,12 +1517,21 @@ section {
     /* ヒーローセクションの背景画像最適化 */
     .hero-section {
         background-image: url('images/Gemini_Generated_Image_q30pn6q30pn6q30p.jpeg');
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: scroll;
         background-clip: border-box;
         background-origin: border-box;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        -webkit-background-position: center center;
+        -moz-background-position: center center;
+        -o-background-position: center center;
+    }
+    
+    .hero-section::after {
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -1530,7 +1586,7 @@ section {
     
     /* ヒーローセクションの小画面最適化 */
     .hero-section {
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
         background-attachment: scroll;
         background-clip: border-box;
@@ -1538,6 +1594,12 @@ section {
         min-height: 100vh;
         height: auto;
         padding-top: 80px;
+    }
+    
+    .hero-section::after {
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.8;
     }
     
     .hero-content {
