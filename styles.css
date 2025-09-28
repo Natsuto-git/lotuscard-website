@@ -12,6 +12,8 @@
 
 html {
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -272,9 +274,10 @@ main {
     transform: scale(1.1);
 }
 
-/* --- Sections with Reduced Spacing --- */
+/* --- Sections with No Spacing --- */
 section {
-    padding: 60px 20px;
+    padding: 0;
+    margin: 0;
 }
 
 /* --- Hero Section --- */
@@ -361,8 +364,8 @@ section {
         radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.15) 0%, transparent 50%),
         linear-gradient(135deg, #1C2A44 0%, #0F1A2E 25%, #1C2A44 50%, #0F1A2E 75%, #1C2A44 100%);
     color: white;
-    padding: 80px 0; /* 余白を削減 */
-    min-height: 60vh; /* 高さを削減 */
+    padding: 0; /* 余白を完全削除 */
+    min-height: 100vh; /* 画面全体を使用 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1301,8 +1304,8 @@ section {
     }
     
     .mission-section {
-        padding: 40px 0;
-        min-height: 50vh;
+        padding: 0;
+        min-height: 100vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
@@ -1617,8 +1620,8 @@ section {
     }
     
     .mission-section {
-        padding: 30px 0;
-        min-height: 40vh;
+        padding: 0;
+        min-height: 100vh;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
