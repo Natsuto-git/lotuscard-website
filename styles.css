@@ -345,11 +345,10 @@ section {
     padding: 0 20px;
     z-index: 2;
     position: relative;
-    margin-top: -100px;
 }
 
 .hero-section h1 {
-    font-size: 36px;
+    font-size: 64px;
     margin-bottom: 24px;
     text-shadow: 
         0 8px 32px rgba(28, 42, 68, 0.8),
