@@ -77,7 +77,7 @@ main {
 /* --- Header (Floating Style) --- */
 .floating-header {
     position: sticky; /* スクロールに追従させる */
-    top: 20px;       /* 画面上部から20px離す */
+    top: 0;          /* 画面上部に密着 */
     z-index: 1000;   /* 他の要素より手前に表示 */
 
     /* 横幅と右配置 */
@@ -295,6 +295,8 @@ section {
     background-repeat: no-repeat;
     padding: 0;
     margin: 0;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .hero-section::before {
@@ -1237,7 +1239,7 @@ section {
         width: 90%;
         padding: 8px 20px;
         margin-right: 5px;
-        top: 10px;
+        top: 0;
     }
     
     .main-nav ul {
@@ -1548,7 +1550,7 @@ section {
         width: 95%;
         padding: 6px 15px;
         margin-right: 2px;
-        top: 5px;
+        top: 0;
     }
     
     .main-nav ul {
