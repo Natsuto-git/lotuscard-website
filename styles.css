@@ -851,7 +851,7 @@ section {
 
 .profile-text-content h2 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 700;
     color: #D4AF37;
     margin-bottom: 32px;
@@ -1067,13 +1067,13 @@ section {
 .faq-cta-section {
     background-color: #1C2A44;
     color: white;
-    padding: 120px 20px;
+    padding: 80px 20px;
 }
 
 .faq-cta-card {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 24px;
-    padding: 60px;
+    padding: 40px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -1084,15 +1084,15 @@ section {
 .faq-cta-section h2 {
     color: #D4AF37;
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .faq-cta-button {
     background-color: #D4AF37;
     color: #1C2A44;
-    padding: 16px 32px;
+    padding: 12px 24px;
     border-radius: 12px;
     font-weight: 700;
     text-decoration: none;
@@ -1101,7 +1101,7 @@ section {
     justify-content: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .faq-cta-button:hover {
@@ -1491,8 +1491,8 @@ section {
     
     .showcase-content-wrapper p {
         font-size: 15px;
-        line-height: 1.5;
-        margin-bottom: 40px;
+        line-height: 1.4;
+        margin-bottom: 35px;
     }
     
     .features-list li {
