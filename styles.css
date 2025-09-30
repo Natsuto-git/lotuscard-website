@@ -29,6 +29,24 @@ body {
     min-height: 100vh;
 }
 
+/* --- Motion Accessibility & Utilities --- */
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
+
+.reveal-up { opacity: 0; transform: translateY(12px); transition: opacity .28s ease-out, transform .28s ease-out; }
+.reveal-up.is-visible { opacity: 1; transform: none; }
+
+/* Button shine utility (applied to gold CTAs) */
+.btn-shine { position: relative; overflow: hidden; }
+.btn-shine::after {
+    content: '';
+    position: absolute; inset: 0; transform: translateX(-120%);
+    background: linear-gradient(110deg, transparent 42%, rgba(255,255,255,.22) 50%, transparent 58%);
+    transition: transform .4s ease;
+}
+.btn-shine:hover::after { transform: translateX(120%); }
+
 /* --- Typography System --- */
 h1 {
     font-family: Georgia, 'Times New Roman', serif;
@@ -182,6 +200,32 @@ main {
     border: 1px solid rgba(212, 175, 55, 0.3);
     letter-spacing: 0.5px;
 }
+.main-nav .cta-button,
+.cta-button-primary,
+.cta-button-secondary,
+.product-showcase .cta-button,
+.faq-cta-button { position: relative; overflow: hidden; }
+.main-nav .cta-button::after,
+.cta-button-primary::after,
+.cta-button-secondary::after,
+.product-showcase .cta-button::after,
+.faq-cta-button::after {
+    content: '';
+    position: absolute; inset: 0; transform: translateX(-120%);
+    background: linear-gradient(110deg, transparent 42%, rgba(255,255,255,.22) 50%, transparent 58%);
+    transition: transform .4s ease;
+}
+.main-nav .cta-button:hover::after,
+.cta-button-primary:hover::after,
+.cta-button-secondary:hover::after,
+.product-showcase .cta-button:hover::after,
+.faq-cta-button:hover::after { transform: translateX(120%); }
+
+.main-nav .cta-button:active,
+.cta-button-primary:active,
+.cta-button-secondary:active,
+.product-showcase .cta-button:active,
+.faq-cta-button:active { transform: scale(.985); }
 
 .main-nav .cta-button:hover {
     transform: translateY(-2px);
@@ -534,7 +578,9 @@ section {
     position: absolute;
     top: -15px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0;
+    transition: transform .12s ease-out, opacity .12s ease-out;
     background-color: #D4AF37;
     color: #1C2A44;
     width: 30px;
@@ -546,6 +592,7 @@ section {
     font-weight: 700;
     font-size: 14px;
 }
+.card-number-badge.is-visible { transform: translateX(-50%) scale(1); opacity: 1; }
 
 .feature-card img {
     width: 280px;
@@ -818,6 +865,19 @@ section {
     display: block;
     margin: 0 auto;
 }
+.phone-mockup-wrapper img:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.5),
+        0 12px 40px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes floatY {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+    100% { transform: translateY(0); }
+}
+.phone-mockup-wrapper img { animation: floatY 6s linear infinite; }
 
 .phone-mockup-wrapper img:hover {
     transform: scale(1.08) translateY(-10px);
@@ -930,6 +990,8 @@ section {
     transform: translateY(-8px);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
+.features-section .feature-item img { transition: transform .2s ease; }
+.features-section .feature-item:hover img { transform: translateY(-2px); }
 
 .features-section .feature-item img {
     width: 200px;
@@ -1095,6 +1157,8 @@ section {
         0 6px 16px rgba(212, 175, 55, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
+.faq-cta-card { opacity: 0; filter: blur(6px); transition: opacity .25s ease-out, filter .25s ease-out; }
+.faq-cta-card.is-visible { opacity: 1; filter: blur(0); }
 
 .faq-cta-card::before {
     content: '';
