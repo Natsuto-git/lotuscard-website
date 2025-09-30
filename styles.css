@@ -858,7 +858,7 @@ section {
 
 .profile-text-content h2 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 700;
     color: #D4AF37;
     margin-bottom: 32px;
@@ -1072,56 +1072,81 @@ section {
 
 /* --- FAQ Section --- */
 .faq-cta-section {
-    background-color: #1C2A44;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 45%),
+        linear-gradient(135deg, #0F1A2E 0%, #1C2A44 40%, #0F1A2E 100%);
     color: white;
-    padding: 80px 20px;
+    padding: 40px 12px;
 }
 
 .faq-cta-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 40px;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    border-radius: 16px;
+    padding: 18px;
     text-align: center;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.28),
+        0 6px 16px rgba(212, 175, 55, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.faq-cta-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 30% 0%, rgba(212, 175, 55, 0.18), transparent 40%),
+        radial-gradient(circle at 70% 100%, rgba(255, 255, 255, 0.08), transparent 45%);
+    pointer-events: none;
 }
 
 .faq-cta-section h2 {
     color: #D4AF37;
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 .faq-cta-button {
-    background-color: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37 0%, #C4A030 100%);
     color: #1C2A44;
-    padding: 12px 24px;
-    border-radius: 12px;
+    padding: 8px 16px;
+    border-radius: 8px;
     font-weight: 700;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(212, 175, 55, 0.28);
+    font-size: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    letter-spacing: 0.3px;
 }
 
 .faq-cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-    background-color: #C4A030;
+    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.45);
+    background: linear-gradient(135deg, #C4A030 0%, #B8952A 100%);
 }
 
 /* --- Footer --- */
 .site-footer {
-    background-color: #1C2A44;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 90% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 45%),
+        linear-gradient(180deg, #0F1A2E 0%, #1C2A44 40%, #0F1A2E 100%);
     color: white;
-    padding: 80px 20px 40px;
+    padding: 100px 20px 50px;
 }
 
 .footer-main {
@@ -1231,9 +1256,10 @@ section {
 .footer-divider {
     border: none;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
     margin: 40px 0 30px;
-    }
+}
     
     .footer-bottom {
     display: flex;
