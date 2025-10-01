@@ -242,45 +242,55 @@ document.addEventListener('DOMContentLoaded', function() {
         missionTextLines.forEach((line, index) => {
             line.classList.remove('visible');
             line.style.opacity = '0';
-            line.style.visibility = 'hidden';
+            // transform/visibility はCSS側で管理
             console.log(`Line ${index + 1} initialized as hidden`);
         });
         
         let hasTriggered = false;
         let timeouts = []; // タイムアウトを保存
         
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                console.log('Mission section visibility changed:', entry.isIntersecting, 'intersectionRatio:', entry.intersectionRatio);
+                const rect = missionSection.getBoundingClientRect();
+                const sectionHeight = rect.height > 0 ? rect.height : 1;
+                // セクション内でどれだけスクロールしたか（上端が画面上をどれだけ上に抜けたか）
+                const scrolledWithin = Math.max(0, -rect.top);
+                const progress = scrolledWithin / sectionHeight; // 0.0〜1.0
+                console.log('Mission vis:', entry.isIntersecting, 'ratio:', entry.intersectionRatio, 'progress:', progress);
                 
-                if (entry.isIntersecting && !hasTriggered) {
+                // モバイル: セクションが半分以上スクロール（progress>=0.5）になるまで開始しない
+                if (isMobile) {
+                    if (!(progress >= 0.5)) {
+                        return; // まだ開始条件を満たさない
+                    }
+                } else {
+                    // デスクトップ: 既存の挙動（Intersectionで十分）
+                    if (!entry.isIntersecting) return;
+                }
+                
+                if (!hasTriggered) {
                     hasTriggered = true;
-                    
-                    console.log('Mission section entered - starting sequential animation');
+                    console.log('Mission section start (mobile gated by 50% progress): starting sequential animation');
                     
                     // 各行を確実に1.4秒間隔で順番に表示
                     missionTextLines.forEach((line, index) => {
                         const delay = index * 1400; // 1.4秒（1400ms）ずつずらす
                         const timeout = setTimeout(() => {
-                            // inlineスタイルを除去してCSSトランジションを効かせる
+                            // inlineスタイルを最小化しCSSトランジションを発火
                             line.style.removeProperty('opacity');
-                            line.style.removeProperty('visibility');
-                            line.style.removeProperty('transform');
-                            // リフローを挟んでトランジションを確実に発火
-                            void line.offsetWidth;
+                            void line.offsetWidth; // reflow
                             line.classList.add('visible');
-                            console.log(`✅ Line ${index + 1} of ${missionTextLines.length} displayed after ${delay / 1000} seconds`);
+                            console.log(`✅ Line ${index + 1}/${missionTextLines.length} shown at ${delay/1000}s`);
                         }, delay);
-                        
                         timeouts.push(timeout);
-                        console.log(`⏱️ Scheduled line ${index + 1} to appear in ${delay / 1000} seconds`);
                     });
                     
                     observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.55, // セクションの55%が表示されたらトリガー
+            threshold: isMobile ? 0.1 : 0.55, // モバイルは進捗チェック主体にするため低め、PCは可視率55%
             rootMargin: '0px'
         });
         
