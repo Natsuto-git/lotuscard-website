@@ -8,6 +8,82 @@ document.addEventListener('DOMContentLoaded', function() {
         top: 0,
         behavior: 'smooth'
     });
+
+    // フェードイン対象要素と監視者のセットアップ
+    const selectors = '.hero-content h1, .hero-content p, .mission-section h2, .mission-section p';
+    let fadeTargets = Array.from(document.querySelectorAll(selectors));
+
+    fadeTargets.forEach(function(el) { el.classList.add('fade-in'); el.classList.remove('visible'); });
+
+    let observer = new IntersectionObserver(function(entries, obs) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.2 });
+
+    function observeAll() {
+        fadeTargets.forEach(function(el) { observer.observe(el); });
+    }
+    observeAll();
+
+    // リロード時にもフェードを確実に発火させるための補助
+    function isInViewport(el) {
+        const r = el.getBoundingClientRect();
+        return r.top < (window.innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
+    }
+
+    function resetFade() {
+        // 監視を一旦解除
+        observer.disconnect();
+        // ターゲットを再取得（DOM変化に対応）
+        fadeTargets = Array.from(document.querySelectorAll(selectors));
+        // クラスを初期状態に戻す
+        fadeTargets.forEach(function(el) {
+            el.classList.add('fade-in');
+            el.classList.remove('visible');
+        });
+        // 再監視
+        observer = new IntersectionObserver(function(entries, obs) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.2 });
+        observeAll();
+    }
+
+    function restartFadeIfVisible() {
+        resetFade();
+        // 画面内にあるものは即時再生
+        fadeTargets.forEach(function(el) {
+            if (isInViewport(el)) {
+                // reflow を挟んでからvisible付与
+                void el.offsetWidth;
+                setTimeout(function() { el.classList.add('visible'); }, 50);
+            }
+        });
+    }
+
+    window.addEventListener('load', function() {
+        restartFadeIfVisible();
+    });
+
+    window.addEventListener('pageshow', function() {
+        // bfcache 復帰時にも再発火
+        restartFadeIfVisible();
+    });
+
+    // 予防的: タブ復帰時にも再生（必要であれば）
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') {
+            restartFadeIfVisible();
+        }
+    });
 });
 
 // ページリロード時にヒーローセクションに戻る
@@ -23,69 +99,6 @@ window.addEventListener('load', function() {
             behavior: 'smooth'
         });
     }, 100);
-});
-
-// -----------------------------
-// Animation helpers
-// -----------------------------
-document.addEventListener('DOMContentLoaded', function() {
-    // IntersectionObserver for reveal animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                // Once visible, unobserve to reduce work
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-
-    // Reveal targets
-    document.querySelectorAll('.reveal-up, .card-number-badge, .faq-cta-card').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Mission lines: apply staggered delays
-    const missionParagraphs = document.querySelectorAll('.mission-section p');
-    missionParagraphs.forEach((p, idx) => {
-        p.classList.add('reveal-up');
-        p.style.transitionDelay = `${Math.min(idx * 80, 600)}ms`;
-        observer.observe(p);
-    });
-
-    // Hero content: initial reveal (title, subtitle, buttons)
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        heroContent.querySelectorAll('h1, p, a').forEach((el, idx) => {
-            el.classList.add('reveal-up');
-            el.style.transitionDelay = `${idx * 80}ms`;
-            // Use a micro timeout to ensure CSS applied before class
-            requestAnimationFrame(() => {
-                el.classList.add('is-visible');
-            });
-        });
-    }
-
-    // Features cards: add reveal class
-    document.querySelectorAll('.features-section .feature-item, .about-features-section .feature-card').forEach((card, i) => {
-        card.classList.add('reveal-up');
-        card.style.transitionDelay = `${Math.min(i * 70, 560)}ms`;
-        observer.observe(card);
-    });
-
-    // Badges in About features (1-3)
-    document.querySelectorAll('.card-number-badge').forEach(badge => {
-        observer.observe(badge);
-    });
-});
-
-// Parallax for hero background (subtle)
-window.addEventListener('scroll', function() {
-    const hero = document.querySelector('.hero-section');
-    if (!hero) return;
-    const y = window.scrollY;
-    // Move background at 3% of scroll amount
-    hero.style.backgroundPosition = `center calc(50% + ${y * 0.03}px)`;
 });
 
 // トップに戻るボタンの機能
