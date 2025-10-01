@@ -349,12 +349,20 @@ section {
 .hero-section h1 {
     font-size: 64px;
     margin-bottom: 24px;
+    color: white;
     text-shadow: 
         0 8px 32px rgba(28, 42, 68, 0.8),
         0 4px 16px rgba(28, 42, 68, 0.6),
         0 2px 8px rgba(28, 42, 68, 0.5),
         0 1px 4px rgba(28, 42, 68, 0.4);
     filter: drop-shadow(0 12px 40px rgba(28, 42, 68, 0.7));
+}
+
+/* ヒーローセクションのタイトルにはゴールドシャインを適用しない */
+.hero-section h1.gold-shine {
+    background: none;
+    -webkit-text-fill-color: white;
+    animation: none;
 }
 
 .hero-section p {
@@ -414,6 +422,7 @@ section {
 .mission-text-body {
     max-width: 1200px; /* 画面いっぱいの最大幅 */
     margin: 0 auto;
+    margin-top: 100px; /* 全体を100px下に移動 */
 }
 
 .mission-section p {
@@ -421,10 +430,24 @@ section {
     font-size: 22px; /* 一つ前の変更前のサイズに戻す */
     line-height: 1.8; /* より読みやすい行間 */
     text-align: center;
-    margin-bottom: 40px; /* 行間を広げる */
+    margin-bottom: 80px; /* 行間をさらに広げる（60px→80px） */
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 20px; /* 追加の下スペース */
+}
+
+/* ミッションテキストの順次表示アニメーション */
+.mission-text-line {
+    opacity: 0 !important;
+    transform: translateY(20px) !important; /* 下から少しスライド */
+    transition: opacity 1.4s ease, transform 1.4s ease; /* ゆっくり滑らかに */
+    will-change: opacity, transform;
+}
+
+.mission-text-line.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 /* --- About Features Section --- */
@@ -482,15 +505,37 @@ section {
 /* --- Features Section --- */
 .features-section {
     background-color: #F9F6F0;
+    padding: 120px 20px;
+}
+
+.features-section .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1C2A44;
+    margin-bottom: 80px;
+    text-align: center;
+    position: relative;
+    transform: translateY(-100px);
+}
+
+.features-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: 80px;
     margin-top: 80px;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -619,8 +664,8 @@ section {
         radial-gradient(circle at 40% 40%, rgba(80, 80, 80, 0.2) 0%, transparent 50%),
         linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 25%, #2A2A2A 50%, #1E1E1E 75%, #2C2C2C 100%);
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    padding: 300px 0; /* より広い縦の余白 */
-    min-height: 120vh; /* 画面の高さの120%を確保 */
+    padding: 150px 0; /* 適度な縦の余白 */
+    min-height: auto; /* 自動調整 */
     width: 100vw; /* 画面幅の100%を確保 */
     margin-left: calc(-50vw + 50%); /* 画面の左端まで拡張 */
     margin-right: calc(-50vw + 50%); /* 画面の右端まで拡張 */
@@ -659,11 +704,11 @@ section {
 .showcase-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
-    max-width: 1600px; /* より広い最大幅 */
+    max-width: 1200px; /* 適度な最大幅 */
     margin: 0 auto;
-    padding: 0 60px; /* コンテンツ内側の余白 */
+    padding: 0 40px; /* コンテンツ内側の余白 */
     position: relative;
     z-index: 2;
 }
@@ -685,20 +730,20 @@ section {
 
 .showcase-content-wrapper h2 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 700;
     color: #D4AF37; /* Gold */
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-align: left;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     white-space: nowrap;
 }
 
 .showcase-content-wrapper p {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9); /* 白に近い色 */
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -710,8 +755,8 @@ section {
 .features-list li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 120px;
-    font-size: 22px;
+    margin-bottom: 60px;
+    font-size: 17px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8); /* 白に近い色 */
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -858,7 +903,7 @@ section {
 
 .profile-text-content h2 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     color: #D4AF37;
     margin-bottom: 32px;
@@ -919,7 +964,7 @@ section {
 .features-section .feature-item {
     background-color: white;
     border-radius: 24px;
-    padding: 40px 30px;
+    padding: 60px 40px;
     text-align: center;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -941,14 +986,14 @@ section {
 
 .features-section .feature-item h3 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 700;
     color: #1C2A44;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .features-section .feature-item p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
     color: #666;
     margin-bottom: 0;
@@ -1405,7 +1450,7 @@ section {
     }
     
     .mission-section h2 {
-        font-size: 22px;
+        font-size: 19px;
         line-height: 1.3;
         margin-bottom: 24px;
         text-align: center;
@@ -1763,7 +1808,7 @@ section {
     }
     
     .mission-section h2 {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1.3;
         margin-bottom: 20px;
         text-align: center;
@@ -1854,6 +1899,208 @@ section {
 
 .fade-in.visible {
     opacity: 1;
+}
+
+/* 1. 文字の順次表示（Staggered Animation） */
+@keyframes fadeInStagger {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stagger-text {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInStagger 1.2s ease forwards;
+}
+
+.stagger-text:nth-child(1) { animation-delay: 0.3s; }
+.stagger-text:nth-child(2) { animation-delay: 0.5s; }
+.stagger-text:nth-child(3) { animation-delay: 0.7s; }
+.stagger-text:nth-child(4) { animation-delay: 0.9s; }
+.stagger-text:nth-child(5) { animation-delay: 1.1s; }
+.stagger-text:nth-child(6) { animation-delay: 1.3s; }
+.stagger-text:nth-child(7) { animation-delay: 1.5s; }
+.stagger-text:nth-child(8) { animation-delay: 1.7s; }
+.stagger-text:nth-child(9) { animation-delay: 1.9s; }
+.stagger-text:nth-child(10) { animation-delay: 2.1s; }
+
+/* 2. グラデーション光沢効果 */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.shimmer-text {
+    background: linear-gradient(
+        90deg,
+        #D4AF37 0%,
+        #F4E8C1 25%,
+        #FFFFFF 50%,
+        #F4E8C1 75%,
+        #D4AF37 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+}
+
+.shimmer-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.shimmer-button:hover::before {
+    left: 100%;
+}
+
+/* 3. パララックス効果 */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* 4. スケール＆ブラー効果 */
+@keyframes scaleBlur {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+.scale-blur {
+    opacity: 0;
+    animation: scaleBlur 1.2s ease forwards;
+}
+
+.scale-blur.visible {
+    animation-play-state: running;
+}
+
+/* 5. ゴールドのシャイン効果 */
+@keyframes goldShine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.gold-shine {
+    position: relative;
+    background: linear-gradient(
+        90deg,
+        #C4A030 0%,
+        #D4AF37 25%,
+        #F4E8C1 50%,
+        #D4AF37 75%,
+        #C4A030 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShine 6s ease-in-out infinite;
+}
+
+.gold-shine-element {
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-shine-element::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(212, 175, 55, 0.3) 50%,
+        transparent 70%
+    );
+    animation: goldShine 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* パララックス用のスムーズスクロール */
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* エレガントなフェードイン（組み合わせ用） */
+@keyframes elegantFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.elegant-fade {
+    opacity: 0;
+}
+
+.elegant-fade.visible {
+    animation: elegantFadeIn 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ヒーローセクション専用のさらにゆっくりなフェード */
+.hero-section .elegant-fade.visible {
+    animation: elegantFadeIn 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* --- Back to Top Button --- */
