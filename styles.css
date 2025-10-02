@@ -871,6 +871,131 @@ section {
         0 12px 40px rgba(212, 175, 55, 0.3);
 }
 
+/* 3つの画像を横に並べる */
+.three-images-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 8px 30px rgba(212, 175, 55, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+.image-item img:hover {
+    transform: scale(1.08) translateY(-10px);
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.5),
+        0 12px 40px rgba(212, 175, 55, 0.3);
+}
+
+/* カルーセルコンテナ */
+.image-carousel {
+    position: relative;
+    width: 100%;
+    /* 高さは中身に合わせる */
+    height: auto;
+    overflow: visible; /* ホバー時の拡大で切れないように */
+    border-radius: 24px;
+    padding: 20px 0 50px 0; /* 上下にパディングを追加（インジケーター用のスペースも確保） */
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    /* 高さは中身に合わせる */
+    height: auto;
+}
+
+.carousel-slide {
+    position: relative;
+    width: 100%;
+    /* 画像の高さに追従 */
+    height: auto;
+    /* 非表示がデフォルト */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide.active {
+    display: flex;
+}
+
+.carousel-slide img {
+    width: 75%;
+    height: auto;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 8px 30px rgba(212, 175, 55, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+.carousel-slide img:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* カルーセルインジケーター */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.indicator.active {
+    background: #D4AF37;
+    border-color: #D4AF37;
+    box-shadow: 
+        0 0 15px rgba(212, 175, 55, 0.6),
+        0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.indicator:hover {
+    background: rgba(212, 175, 55, 0.7);
+    border-color: #D4AF37;
+    transform: scale(1.2);
+}
+
 .profile-text-content {
     background: 
         linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
@@ -1549,7 +1674,22 @@ section {
     }
     
     .profile-text-content h2 {
-        font-size: 24px;
+        font-size: 28px;
+    }
+    
+    /* カルーセルのモバイル対応 */
+    .carousel-slide img {
+        width: 85%;
+    }
+    
+    .carousel-indicators {
+        bottom: 5px;
+        gap: 8px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
     }
     
     .profile-text-content p {
@@ -1846,6 +1986,21 @@ section {
         font-size: 18px;
         margin-bottom: 14px;
         line-height: 1.2;
+    }
+    
+    /* カルーセルの小画面対応 */
+    .carousel-slide img {
+        width: 90%;
+    }
+    
+    .carousel-indicators {
+        bottom: 5px;
+        gap: 6px;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
     }
     
     .showcase-content-wrapper p {

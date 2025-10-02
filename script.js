@@ -242,56 +242,47 @@ document.addEventListener('DOMContentLoaded', function() {
         missionTextLines.forEach((line, index) => {
             line.classList.remove('visible');
             line.style.opacity = '0';
-            // transform/visibility はCSS側で管理
+            line.style.visibility = 'hidden';
+            line.style.transform = 'translateY(20px)';
             console.log(`Line ${index + 1} initialized as hidden`);
         });
         
         let hasTriggered = false;
         let timeouts = []; // タイムアウトを保存
         
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                const rect = missionSection.getBoundingClientRect();
-                const sectionHeight = rect.height > 0 ? rect.height : 1;
-                // セクション内でどれだけスクロールしたか（上端が画面上をどれだけ上に抜けたか）
-                const scrolledWithin = Math.max(0, -rect.top);
-                const progress = scrolledWithin / sectionHeight; // 0.0〜1.0
-                console.log('Mission vis:', entry.isIntersecting, 'ratio:', entry.intersectionRatio, 'progress:', progress);
+                console.log('Mission section visibility changed:', entry.isIntersecting, 'intersectionRatio:', entry.intersectionRatio);
                 
-                // モバイル: セクションが半分以上スクロール（progress>=0.5）になるまで開始しない
-                if (isMobile) {
-                    if (!(progress >= 0.5)) {
-                        return; // まだ開始条件を満たさない
-                    }
-                } else {
-                    // デスクトップ: 既存の挙動（Intersectionで十分）
-                    if (!entry.isIntersecting) return;
-                }
-                
-                if (!hasTriggered) {
+                // セクションが50%以上表示されたらアニメーション開始
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !hasTriggered) {
                     hasTriggered = true;
-                    console.log('Mission section start (mobile gated by 50% progress): starting sequential animation');
+                    console.log('Mission section entered - starting sequential animation');
                     
                     // 各行を確実に1.4秒間隔で順番に表示
                     missionTextLines.forEach((line, index) => {
                         const delay = index * 1400; // 1.4秒（1400ms）ずつずらす
                         const timeout = setTimeout(() => {
-                            // inlineスタイルを最小化しCSSトランジションを発火
-                            line.style.removeProperty('opacity');
-                            void line.offsetWidth; // reflow
+                            // inlineスタイルを削除してCSSトランジションを有効にする
+                            line.style.opacity = '';
+                            line.style.visibility = '';
+                            line.style.transform = '';
+                            // リフローを強制
+                            void line.offsetWidth; 
                             line.classList.add('visible');
-                            console.log(`✅ Line ${index + 1}/${missionTextLines.length} shown at ${delay/1000}s`);
+                            console.log(`✅ Line ${index + 1} of ${missionTextLines.length} displayed after ${delay / 1000} seconds`);
                         }, delay);
+                        
                         timeouts.push(timeout);
+                        console.log(`⏱️ Scheduled line ${index + 1} to appear in ${delay / 1000} seconds`);
                     });
                     
                     observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: isMobile ? 0.1 : 0.55, // モバイルは進捗チェック主体にするため低め、PCは可視率55%
-            rootMargin: '0px'
+            threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], // 複数の閾値を設定
+            rootMargin: '0px' // マージンなし
         });
         
         observer.observe(missionSection);
@@ -302,6 +293,81 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+// 8. カルーセルアニメーション
+function initImageCarousel() {
+    const carousel = document.querySelector('.image-carousel');
+    if (!carousel) return;
+    
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const indicators = carousel.querySelectorAll('.indicator');
+    let currentSlide = 0;
+    let autoSlideInterval;
+    
+    // スライド切り替え関数
+    function showSlide(index) {
+        // 全てのスライドを非アクティブに
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // 指定されたスライドをアクティブに
+        if (slides[index]) {
+            slides[index].classList.add('active');
+        }
+        if (indicators[index]) {
+            indicators[index].classList.add('active');
+        }
+        
+        currentSlide = index;
+    }
+    
+    // 次のスライドに移動
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+    
+    // 自動スライド開始
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 3000); // 3秒間隔
+    }
+    
+    // 自動スライド停止
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+    }
+    
+    // インジケータークリックイベント
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+            stopAutoSlide();
+            startAutoSlide(); // 再開
+        });
+    });
+    
+    // マウスホバーで自動スライド停止
+    carousel.addEventListener('mouseenter', stopAutoSlide);
+    carousel.addEventListener('mouseleave', startAutoSlide);
+    
+    // 初期化
+    showSlide(0);
+    startAutoSlide();
+    
+    // デバッグ用：コンソールにログを出力
+    console.log('Carousel initialized:', {
+        slides: slides.length,
+        indicators: indicators.length,
+        currentSlide: currentSlide
+    });
+    
+    // クリーンアップ関数
+    return () => {
+        stopAutoSlide();
+    };
+}
+
     // すべての高度なアニメーションを初期化
     setTimeout(() => {
         initStaggerText();
@@ -311,6 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
         triggerInitialGoldShine();
         initScrollZoom();
         initMissionTextAnimation();
+        initImageCarousel();
     }, 100);
 });
 
