@@ -305,16 +305,26 @@ function initImageCarousel() {
     
     // スライド切り替え関数
     function showSlide(index) {
+        console.log(`Switching to slide ${index}`);
+        
         // 全てのスライドを非アクティブに
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            console.log(`Slide ${i} deactivated`);
+        });
+        indicators.forEach((indicator, i) => {
+            indicator.classList.remove('active');
+            console.log(`Indicator ${i} deactivated`);
+        });
         
         // 指定されたスライドをアクティブに
         if (slides[index]) {
             slides[index].classList.add('active');
+            console.log(`Slide ${index} activated`);
         }
         if (indicators[index]) {
             indicators[index].classList.add('active');
+            console.log(`Indicator ${index} activated`);
         }
         
         currentSlide = index;
@@ -360,6 +370,15 @@ function initImageCarousel() {
         slides: slides.length,
         indicators: indicators.length,
         currentSlide: currentSlide
+    });
+    
+    // 各スライドの状態を確認
+    slides.forEach((slide, index) => {
+        console.log(`Slide ${index}:`, {
+            hasActiveClass: slide.classList.contains('active'),
+            display: getComputedStyle(slide).display,
+            opacity: getComputedStyle(slide).opacity
+        });
     });
     
     // クリーンアップ関数

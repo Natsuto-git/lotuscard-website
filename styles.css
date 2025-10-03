@@ -924,6 +924,7 @@ section {
     width: 100%;
     /* 高さは中身に合わせる */
     height: auto;
+    min-height: 300px; /* 最小高さを設定してモバイルでの表示を安定化 */
 }
 
 .carousel-slide {
