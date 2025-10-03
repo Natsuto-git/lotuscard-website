@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // 各行を確実に1.4秒間隔で順番に表示
                     missionTextLines.forEach((line, index) => {
-                        const delay = index * 1400; // 1.4秒（1400ms）ずつずらす
+                        const delay = index * 1000; // 1.4秒（1400ms）ずつずらす
                         const timeout = setTimeout(() => {
                             // inlineスタイルを削除してCSSトランジションを有効にする
                             line.style.opacity = '';
