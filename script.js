@@ -361,6 +361,69 @@ function initImageCarousel() {
     carousel.addEventListener('mouseenter', stopAutoSlide);
     carousel.addEventListener('mouseleave', startAutoSlide);
     
+    // タッチ・マウススワイプ機能（デスクトップ・モバイル両対応）
+    let startX = 0;
+    let endX = 0;
+    let isDragging = false;
+    
+    // タッチイベント（モバイル）
+    carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        stopAutoSlide();
+    }, { passive: true });
+    
+    carousel.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+        startAutoSlide();
+    }, { passive: true });
+    
+    // マウスイベント（デスクトップ）
+    carousel.addEventListener('mousedown', (e) => {
+        startX = e.clientX;
+        isDragging = true;
+        stopAutoSlide();
+        e.preventDefault();
+    });
+    
+    carousel.addEventListener('mouseup', (e) => {
+        if (isDragging) {
+            endX = e.clientX;
+            handleSwipe();
+            startAutoSlide();
+            isDragging = false;
+        }
+    });
+    
+    // マウスがカルーセル外に出た場合の処理
+    carousel.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            isDragging = false;
+            startAutoSlide();
+        }
+    });
+    
+    // ドラッグ中にマウスが動いた場合の処理（選択を防ぐ）
+    carousel.addEventListener('selectstart', (e) => {
+        e.preventDefault();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50; // 最小スワイプ距離
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // 左スワイプ（次のスライド）
+                nextSlide();
+            } else {
+                // 右スワイプ（前のスライド）
+                const prevIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+                showSlide(prevIndex);
+            }
+        }
+    }
+    
     // 初期化
     showSlide(0);
     startAutoSlide();
@@ -387,6 +450,64 @@ function initImageCarousel() {
     };
 }
 
+// 9. スムーズスクロール機能
+function initSmoothScroll() {
+    // 全ての内部リンクにスムーズスクロールを適用
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    
+    internalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const headerHeight = 80; // ヘッダーの高さを考慮
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                console.log(`Smooth scrolling to: ${targetId}`);
+            }
+        });
+    });
+}
+
+// 10. FAQアコーディオン機能
+function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const toggle = item.querySelector('.faq-toggle');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // 他のFAQアイテムを閉じる
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // 現在のアイテムをトグル
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+            
+            console.log(`FAQ toggled: ${item.querySelector('h3').textContent}`);
+        });
+    });
+}
+
     // すべての高度なアニメーションを初期化
     setTimeout(() => {
         initStaggerText();
@@ -397,6 +518,8 @@ function initImageCarousel() {
         initScrollZoom();
         initMissionTextAnimation();
         initImageCarousel();
+        initSmoothScroll();
+        initFaqAccordion();
     }, 100);
 });
 
