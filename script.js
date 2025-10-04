@@ -321,6 +321,18 @@ function initImageCarousel() {
         if (slides[index]) {
             slides[index].classList.add('active');
             console.log(`Slide ${index} activated`);
+            
+            // モバイルでの表示確認
+            setTimeout(() => {
+                const slideElement = slides[index];
+                const computedStyle = getComputedStyle(slideElement);
+                console.log(`Slide ${index} display status:`, {
+                    opacity: computedStyle.opacity,
+                    transform: computedStyle.transform,
+                    display: computedStyle.display,
+                    visibility: computedStyle.visibility
+                });
+            }, 100);
         }
         if (indicators[index]) {
             indicators[index].classList.add('active');
