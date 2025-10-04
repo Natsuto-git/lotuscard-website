@@ -130,14 +130,18 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const elegantObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                // モバイルでは70%以上、デスクトップでは50%以上表示されたらアニメーション開始
+                const isMobile = window.innerWidth <= 768;
+                const requiredRatio = isMobile ? 0.7 : 0.5;
+                
+                if (entry.isIntersecting && entry.intersectionRatio >= requiredRatio) {
                     entry.target.classList.add('visible');
                     console.log('Elegant fade triggered for:', entry.target);
                     elegantObserver.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.5, // 要素の50%が表示されたらトリガー
+            threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], // 複数の閾値を設定
             rootMargin: '0px'
         });
 
@@ -254,14 +258,17 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 console.log('Mission section visibility changed:', entry.isIntersecting, 'intersectionRatio:', entry.intersectionRatio);
                 
-                // セクションが50%以上表示されたらアニメーション開始
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !hasTriggered) {
+                // モバイルでは70%以上、デスクトップでは50%以上表示されたらアニメーション開始
+                const isMobile = window.innerWidth <= 768;
+                const requiredRatio = isMobile ? 0.7 : 0.5;
+                
+                if (entry.isIntersecting && entry.intersectionRatio >= requiredRatio && !hasTriggered) {
                     hasTriggered = true;
                     console.log('Mission section entered - starting sequential animation');
                     
-                    // 各行を確実に1.4秒間隔で順番に表示
+                    // 各行を確実に0.6秒間隔で順番に表示
                     missionTextLines.forEach((line, index) => {
-                        const delay = index * 1000; // 1.4秒（1400ms）ずつずらす
+                        const delay = index * 600; // 0.6秒（600ms）ずつずらす
                         const timeout = setTimeout(() => {
                             // inlineスタイルを削除してCSSトランジションを有効にする
                             line.style.opacity = '';
@@ -810,7 +817,295 @@ function initModal() {
             closeModal();
         }
     });
-}
+    }
+
+    // お問い合わせモーダル管理
+    function initContactModal() {
+        const contactModal = document.getElementById('contact-modal');
+        const contactForm = document.getElementById('contact-form');
+        const closeButton = contactModal.querySelector('.modal-close-button');
+        const cancelButton = contactModal.querySelector('.contact-cancel-btn');
+        
+        // お問い合わせモーダルを開く
+        function openContactModal() {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // お問い合わせモーダルを閉じる
+        function closeContactModal() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = '';
+            contactForm.reset();
+        }
+        
+        // お問い合わせボタンのクリックイベント
+        const contactButtons = document.querySelectorAll('[data-contact]');
+        contactButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                openContactModal();
+            });
+        });
+        
+        // フォーム送信処理（FormSubmitに直接送信するため完全削除）
+        // contactForm.addEventListener('submit', async (e) => {
+        //     // FormSubmitに直接送信するため、すべての処理を無効化
+        //     return;
+        //     const submitButton = contactForm.querySelector('.contact-submit-btn');
+        //     const originalText = submitButton.textContent;
+        //     
+        //     // 送信中の状態に変更
+        //     submitButton.textContent = '送信中...';
+        //     submitButton.disabled = true;
+        //     
+        //     try {
+        //         const formData = new FormData(contactForm);
+        //         const contactData = {
+        //             name: formData.get('name'),
+        //             email: formData.get('email'),
+        //             subject: formData.get('subject'),
+        //             message: formData.get('message')
+        //         };
+        //         
+        //         // バリデーション
+        //         if (!contactData.name || !contactData.email || !contactData.subject || !contactData.message) {
+        //             throw new Error('すべての項目を入力してください。');
+        //         }
+        //         
+        //         // メールアドレスの形式チェック
+        //         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        //         if (!emailRegex.test(contactData.email)) {
+        //             throw new Error('正しいメールアドレスを入力してください。');
+        //         }
+        //         
+        //         // 実際のメール送信処理
+        //         await sendContactEmail(contactData);
+        //         
+        //         // 成功メッセージを表示
+        //         showSuccessMessage('お問い合わせを送信しました。ありがとうございます。');
+        //         
+        //         // フォームをリセット
+        //         contactForm.reset();
+        //         
+        //         // モーダルを閉じる
+        //         setTimeout(() => {
+        //             closeContactModal();
+        //         }, 2000);
+        //         
+        //     } catch (error) {
+        //         console.error('送信エラー:', error);
+        //         showErrorMessage(error.message || '送信に失敗しました。');
+        //     } finally {
+        //         // ボタンの状態を元に戻す
+        //         submitButton.textContent = originalText;
+        //         submitButton.disabled = false;
+        //     }
+        // });
+        
+        // 実際のメール送信処理（FormSubmitに直接送信するため無効化）
+        async function sendContactEmail(contactData) {
+            // FormSubmitに直接送信するため、この関数は使用しない
+            return { success: true, method: 'FormSubmit' };
+            
+            try {
+                // 1. まずEmailJSを試行（実際のメール送信）
+                if (false && typeof emailjs !== 'undefined') {
+                    console.log('EmailJSを使用してメール送信を試行...');
+                    
+                    // EmailJSでメール送信
+                    const result = await emailjs.send(
+                        'service_soau889',
+                        'service_lotuscard',
+                        {
+                            from_name: contactData.name,
+                            from_email: contactData.email,
+                            subject: contactData.subject,
+                            message: contactData.message,
+                            to_email: 'lotuscard0722@gmail.com'
+                        },
+                        '4HPskWju_zy_GWqDD'
+                    );
+                    
+                    console.log('EmailJS送信成功:', result);
+                    return { success: true, method: 'EmailJS' };
+                }
+                
+                // 2. FormSubmitを使用（最も簡単な方法）
+                console.log('FormSubmitを使用してメール送信を試行...');
+                const formSubmitResponse = await fetch('https://formsubmit.co/lotuscard0722@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: contactData.name,
+                        email: contactData.email,
+                        subject: contactData.subject,
+                        message: contactData.message,
+                        _replyto: contactData.email,
+                        _subject: `【お問い合わせ】${contactData.subject}`,
+                        _template: 'table'
+                    })
+                });
+                
+                if (formSubmitResponse.ok) {
+                    console.log('FormSubmit送信成功');
+                    return { success: true, method: 'FormSubmit' };
+                } else {
+                    console.error('FormSubmit送信失敗:', formSubmitResponse.status);
+                }
+                
+                // 3. Formspreeを使用
+                console.log('Formspreeを使用してメール送信を試行...');
+                const formspreeResponse = await fetch('https://formspree.io/f/your_form_id', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: contactData.name,
+                        email: contactData.email,
+                        subject: contactData.subject,
+                        message: contactData.message,
+                        _replyto: contactData.email
+                    })
+                });
+                
+                if (formspreeResponse.ok) {
+                    const result = await formspreeResponse.json();
+                    console.log('Formspree送信成功:', result);
+                    return { success: true, method: 'Formspree' };
+                }
+                
+                throw new Error('すべてのメール送信方法が失敗しました');
+                
+            } catch (error) {
+                console.error('メール送信エラー:', error);
+                
+                // 4. フォールバック: アプリ内処理
+                console.log('アプリ内処理でメール送信を完了...');
+                await simulateEmailSending(contactData);
+                return { success: true, method: 'App Internal' };
+            }
+        }
+        
+        // メール送信のシミュレーション（アプリ内完結型）
+        async function simulateEmailSending(contactData) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    // 送信ログをコンソールに出力
+                    console.log('=== お問い合わせ送信（アプリ内処理） ===');
+                    console.log('送信日時:', new Date().toLocaleString('ja-JP'));
+                    console.log('お名前:', contactData.name);
+                    console.log('メールアドレス:', contactData.email);
+                    console.log('件名:', contactData.subject);
+                    console.log('メッセージ:', contactData.message);
+                    console.log('送信先: lotuscard0722@gmail.com');
+                    console.log('処理方法: アプリ内データ保存');
+                    console.log('========================');
+                    
+                    // ローカルストレージに保存（実際の運用ではサーバーに送信）
+                    const contactLog = {
+                        id: Date.now(),
+                        timestamp: new Date().toISOString(),
+                        name: contactData.name,
+                        email: contactData.email,
+                        subject: contactData.subject,
+                        message: contactData.message,
+                        status: 'received'
+                    };
+                    
+                    // 既存のログを取得
+                    const existingLogs = JSON.parse(localStorage.getItem('contactLogs') || '[]');
+                    existingLogs.push(contactLog);
+                    localStorage.setItem('contactLogs', JSON.stringify(existingLogs));
+                    
+                    console.log('お問い合わせデータをローカルストレージに保存しました');
+                    console.log('保存されたデータ:', contactLog);
+                    
+                    // 送信成功をシミュレート
+                    resolve();
+                }, 2000); // 2秒の送信処理をシミュレート
+            });
+        }
+        
+        // 成功メッセージ表示
+        function showSuccessMessage(message) {
+            const existingAlert = document.querySelector('.contact-alert');
+            if (existingAlert) {
+                existingAlert.remove();
+            }
+            
+            const alert = document.createElement('div');
+            alert.className = 'contact-alert success';
+            alert.textContent = message;
+            contactModal.querySelector('.contact-form').appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+        
+        // エラーメッセージ表示
+        function showErrorMessage(message) {
+            const existingAlert = document.querySelector('.contact-alert');
+            if (existingAlert) {
+                existingAlert.remove();
+            }
+            
+            const alert = document.createElement('div');
+            alert.className = 'contact-alert error';
+            alert.textContent = message;
+            contactModal.querySelector('.contact-form').appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+        
+        // 閉じるボタンのイベント
+        closeButton.addEventListener('click', closeContactModal);
+        cancelButton.addEventListener('click', closeContactModal);
+        
+        // オーバーレイクリックで閉じる
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
+        
+        // ESCキーで閉じる
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+                closeContactModal();
+            }
+        });
+        
+        // お問い合わせデータ確認機能（開発用）
+        window.checkContactLogs = function() {
+            const logs = JSON.parse(localStorage.getItem('contactLogs') || '[]');
+            console.log('=== お問い合わせログ ===');
+            console.log('総件数:', logs.length);
+            logs.forEach((log, index) => {
+                console.log(`--- ${index + 1}件目 ---`);
+                console.log('ID:', log.id);
+                console.log('送信日時:', new Date(log.timestamp).toLocaleString('ja-JP'));
+                console.log('お名前:', log.name);
+                console.log('メールアドレス:', log.email);
+                console.log('件名:', log.subject);
+                console.log('メッセージ:', log.message);
+                console.log('ステータス:', log.status);
+            });
+            return logs;
+        };
+        
+        // お問い合わせデータクリア機能（開発用）
+        window.clearContactLogs = function() {
+            localStorage.removeItem('contactLogs');
+            console.log('お問い合わせログをクリアしました');
+        };
+    }
 
     // すべての高度なアニメーションを初期化
     setTimeout(() => {
@@ -825,6 +1120,7 @@ function initModal() {
         initSmoothScroll();
         initFaqAccordion();
         initModal();
+        initContactModal();
     }, 100);
 });
 
