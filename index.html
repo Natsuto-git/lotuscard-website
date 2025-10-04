@@ -6,7 +6,7 @@
     <title>LotusCard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -124,13 +124,13 @@
                         <div class="card-number-badge">1</div>
                         <img src="images/3.png" alt="アプリは不要、かざすだけ">
                         <h3>必要なのは"１タップ"だけ</h3>
-                        <p>スマートフォンにLotusCardをかざすだけで、<br>一瞬にして連絡先を交換。<br>まるで交通系ICカードのような手軽さです。<br>高級感あるLotusCardからあなたのユーモアと魅力が解き放たれます。</p>
+                        <p>スマートフォンにLotusCardをかざすだけで、<br>一瞬にして連絡先を交換。<br>まるで交通系ICカードのような手軽さです。</p>
                     </div>
                     <div class="feature-card">
                         <div class="card-number-badge">2</div>
                         <img src="images/5.png" alt="1回買えば一生使える">
                         <h3>永遠のパートナー</h3>
-                        <p>一度購入すれば半永久的にご愛用いただけます。<br>出会いを重ねるほどに地球に優しくなれる、<br>未来への一枚です。</p>
+                        <p>一度購入すれば半永久的にご愛用いただけます。<br>出会いを重ねるほどに地球に優しくなれます。</p>
                     </div>
                     <div class="feature-card">
                         <div class="card-number-badge">3</div>
@@ -150,13 +150,17 @@
                             <div class="image-carousel">
                                 <div class="carousel-container">
                                     <div class="carousel-slide active">
-                                        <img src="images/website.example1.PNG" alt="商品例1">
+                                        <a href="https://natsuto-yamaguchi-dtkt.vercel.app" target="_blank" rel="noopener noreferrer">
+                                            <img src="images/website.example1.PNG" alt="商品例1">
+                                        </a>
                                     </div>
                                     <div class="carousel-slide">
                                         <img src="images/website.example2.PNG" alt="商品例2">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/website.example3.PNG" alt="商品例3">
+                                        <a href="https://raiki-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+                                            <img src="images/website.example3.PNG" alt="商品例3">
+                                        </a>
                                     </div>
                                     <div class="carousel-slide">
                                         <img src="images/website.example4.PNG" alt="商品例4">
@@ -171,7 +175,7 @@
                             </div>
                         </div>
                         <div class="profile-text-content">
-                            <h2 class="gold-shine">触れるだけで<br>すべてが伝わる。</h2>
+                            <h2 class="gold-shine">１タップだけで すべてが伝わる。</h2>
                             <p>様々なSNSをLotusCardにまとめることで、連絡先の交換もタップひとつで完了！</p>
                             <p>毎回SNSのQRコードを開く手間もなくなり、カードをスマートにかざすだけであなたの繋がりを支えます。</p>
                         </div>
@@ -329,7 +333,7 @@
                 <button class="modal-close-button" aria-label="Close modal">&times;</button>
                 <h2 class="modal-title">お問い合わせ</h2>
                 <div class="contact-form">
-                    <form id="contact-form" action="https://formsubmit.co/lotuscard0722@gmail.com" method="POST" target="_blank">
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="contact-name">お名前 <span class="required">*</span></label>
                             <input type="text" id="contact-name" name="name" required>
@@ -350,13 +354,8 @@
                             <textarea id="contact-message" name="message" rows="5" required></textarea>
                         </div>
                         
-                        <input type="hidden" name="_subject" value="【LotusCard】お問い合わせ">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://your-website.com/thank-you">
-                        <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。2営業日以内にご返信いたします。">
                         <div class="form-actions">
-                            <button type="submit" class="contact-submit-btn">メールを送信</button>
+                            <button type="submit" class="contact-submit-btn">メールアプリで送信</button>
                             <button type="button" class="contact-cancel-btn">キャンセル</button>
                         </div>
                     </form>

@@ -848,10 +848,34 @@ function initModal() {
             });
         });
         
-        // フォーム送信処理（FormSubmitに直接送信するため完全削除）
-        // contactForm.addEventListener('submit', async (e) => {
-        //     // FormSubmitに直接送信するため、すべての処理を無効化
-        //     return;
+        // フォーム送信処理（メールアプリで送信）
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // バリデーション
+            if (!name || !email || !subject || !message) {
+                alert('すべての項目を入力してください。');
+                return;
+            }
+            
+            // メールアプリを開く
+            const mailtoLink = `mailto:lotuscard0722@gmail.com?subject=${encodeURIComponent('【LotusCard】' + subject)}&body=${encodeURIComponent(
+                `お名前: ${name}\nメールアドレス: ${email}\n件名: ${subject}\n\nメッセージ:\n${message}`
+            )}`;
+            
+            window.location.href = mailtoLink;
+            
+            // モーダルを閉じる
+            setTimeout(() => {
+                closeContactModal();
+            }, 1000);
+        });
         //     const submitButton = contactForm.querySelector('.contact-submit-btn');
         //     const originalText = submitButton.textContent;
         //     
