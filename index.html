@@ -281,10 +281,10 @@
                     <nav>
                         <ul>
                             
-                            <li><a href="#company">運営会社</a></li>
-                            <li><a href="#privacy">プライバシーポリシー</a></li>
-                            <li><a href="#terms">利用規約</a></li>
-                            <li><a href="#commercial">特商法取引の記載</a></li>
+                            <li><a href="#" data-modal="company">運営について</a></li>
+                            <li><a href="#" data-modal="privacy">プライバシーポリシー</a></li>
+                            <li><a href="#" data-modal="terms">利用規約</a></li>
+                            <li><a href="#" data-modal="commercial">特商法取引の記載</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -292,12 +292,6 @@
                     <div class="footer-links-grid">
                         <div class="footer-link-column">
                             
-                        </div>
-                        <div class="footer-link-column">
-                            <h4>よくある質問</h4>
-                            <ul>
-                                <li><a href="#faq">FAQ</a></li>
-                            </ul>
                         </div>
                     </div>
                     <a href="#contact" class="footer-cta-button">お問い合わせ</a>
@@ -318,5 +312,14 @@
     </button>
 
     <script src="script.js"></script>
+    
+    <!-- Modal Component -->
+    <div id="info-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" aria-label="Close modal">&times;</button>
+            <h2 id="modal-title" class="modal-title"></h2>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
 </body>
 </html>
