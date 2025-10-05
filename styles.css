@@ -430,7 +430,7 @@ section {
 .mission-section p {
     color: rgba(255, 255, 255, 0.9);
     font-family: 'Playfair Display', serif; /* 高級感のあるフォント */
-    font-size: 26px; /* 28px → 26px（2ピクセル小さく） */
+    font-size: 24px; /* 26px → 24px（2ピクセル小さく） */
     font-weight: 500; /* 適度な太さで高級感を演出 */
     line-height: 1.8; /* より読みやすい行間 */
     text-align: center;
@@ -1823,7 +1823,7 @@ section {
     
     .mission-section p {
         font-family: 'Playfair Display', serif; /* 高級感のあるフォント */
-        font-size: 18px; /* 20px → 18px（2ピクセル小さく） */
+        font-size: 16px; /* 18px → 16px（2ピクセル小さく） */
         font-weight: 500; /* 適度な太さで高級感を演出 */
         line-height: 1.6;
         margin-bottom: 30px;
@@ -2240,7 +2240,7 @@ section {
     
     .mission-section p {
         font-family: 'Playfair Display', serif; /* 高級感のあるフォント */
-        font-size: 16px; /* 18px → 16px（2ピクセル小さく） */
+        font-size: 14px; /* 16px → 14px（2ピクセル小さく） */
         font-weight: 500; /* 適度な太さで高級感を演出 */
         line-height: 1.5;
         margin-bottom: 25px;
