@@ -2075,11 +2075,13 @@ section {
         text-align: center;
     }
     
-    .back-to-top-btn {
+    .line-friend-btn {
         bottom: 20px;
         right: 20px;
-        width: 50px;
-        height: 50px;
+    }
+    
+    .line-friend-btn img {
+        height: 32px;
     }
     
     /* タッチ操作最適化 */
@@ -2748,55 +2750,32 @@ section {
     }
 }
 
-/* --- Back to Top Button --- */
-.back-to-top-btn {
+/* --- LINE Friend Add Button --- */
+.line-friend-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #D4AF37 0%, #C4A030 100%);
-    color: #1C2A44;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 
-        0 8px 25px rgba(212, 175, 55, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.back-to-top-btn.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.back-to-top-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 
-        0 12px 35px rgba(212, 175, 55, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    background: linear-gradient(135deg, #C4A030 0%, #B8952A 100%);
-}
-
-.back-to-top-btn:active {
-    transform: translateY(-1px);
-}
-
-.back-to-top-btn svg {
+.line-friend-btn a {
+    display: block;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.back-to-top-btn:hover svg {
-    transform: scale(1.1);
+.line-friend-btn a:hover {
+    transform: scale(1.05);
+}
+
+.line-friend-btn img {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.line-friend-btn:hover img {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* --- Contact Info Styles --- */
