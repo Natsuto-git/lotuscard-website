@@ -174,7 +174,7 @@ main {
 
 /* LINEボタンのスタイル */
 .main-nav a img {
-    height: 32px; /* LINEボタンの高さを調整 */
+    height: 38px; /* LINEボタンの高さを少し大きく */
     width: auto;
     transition: all 0.3s ease;
     border-radius: 6px;
@@ -1791,7 +1791,7 @@ section {
     }
     
     .main-nav a img {
-        height: 28px;
+        height: 32px;
     }
     
     .main-nav .cta-button {
@@ -2228,7 +2228,7 @@ section {
     }
     
     .main-nav a img {
-        height: 24px;
+        height: 28px;
     }
     
     .main-nav .cta-button {
