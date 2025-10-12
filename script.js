@@ -266,9 +266,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     hasTriggered = true;
                     console.log('Mission section entered - starting sequential animation');
                     
-                    // 各行を確実に0.8秒間隔で順番に表示
+                    // 各行を確実に0.6秒間隔で順番に表示
                     missionTextLines.forEach((line, index) => {
-                        const delay = index * 800; // 0.8秒（800ms）ずつずらす
+                        const delay = index * 600; // 0.6秒（600ms）ずつずらす
                         const timeout = setTimeout(() => {
                             // トランジションを有効にする
                             line.style.transition = 'opacity 1.4s ease, transform 1.4s ease';

@@ -1672,11 +1672,26 @@ section {
 }
 
 .line-contact-header .modal-title {
-    color: #FFFFFF;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 10px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.line-contact-header .modal-title.gold-shine {
+    color: transparent;
+    background: linear-gradient(
+        90deg,
+        #C4A030 0%,
+        #D4AF37 25%,
+        #F4E8C1 50%,
+        #D4AF37 75%,
+        #C4A030 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShine 6s ease-in-out infinite;
 }
 
 .line-contact-subtitle {
