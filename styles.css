@@ -493,15 +493,15 @@ section {
 
 /* ミッションテキストの順次表示アニメーション */
 .mission-text-line {
-    opacity: 0 !important;
-    transform: translateY(20px) !important; /* 下から少しスライド */
-    transition: opacity 1.4s ease, transform 1.4s ease; /* ゆっくり滑らかに */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: opacity, transform;
 }
 
 .mission-text-line.visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- About Features Section --- */
@@ -1624,6 +1624,204 @@ section {
     
     .modal-body li {
         color: #ffffff;
+    }
+}
+
+/* LINE専用お問い合わせモーダル */
+.line-contact-modal-content {
+    background: linear-gradient(135deg, #1C2A44 0%, #2A3F5F 100%);
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    max-width: 500px;
+    width: 90%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.line-contact-header {
+    background: linear-gradient(135deg, #2A3F5F 0%, #1C2A44 100%);
+    padding: 40px 40px 30px;
+    text-align: center;
+    position: relative;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.line-icon-wrapper {
+    margin-bottom: 20px;
+}
+
+.line-icon {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+}
+
+.line-contact-header .modal-title {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.line-contact-subtitle {
+    color: #D4AF37;
+    font-size: 14px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.line-contact-content {
+    padding: 40px;
+}
+
+.line-contact-description {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.line-contact-description p {
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.qr-code-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.line-qr-code {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+.qr-code-description {
+    color: #D4AF37;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.line-contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.line-contact-button {
+    background: linear-gradient(135deg, #00C300 0%, #00A000 100%);
+    color: #FFFFFF;
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 195, 0, 0.3);
+    border: 2px solid transparent;
+}
+
+.line-contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 195, 0, 0.4);
+    background: linear-gradient(135deg, #00D400 0%, #00B300 100%);
+}
+
+
+.contact-cancel-btn {
+    background: transparent;
+    color: #D4AF37;
+    border: 2px solid #D4AF37;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-cancel-btn:hover {
+    background: #D4AF37;
+    color: #1C2A44;
+    transform: translateY(-1px);
+}
+
+/* LINEモーダルのモバイル対応 */
+@media (max-width: 768px) {
+    .line-contact-modal-content {
+        max-width: 95%;
+        margin: 20px;
+    }
+    
+    .line-contact-header {
+        padding: 30px 20px 20px;
+    }
+    
+    .line-icon {
+        width: 70px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .line-contact-header .modal-title {
+        font-size: 20px;
+    }
+    
+    .line-contact-subtitle {
+        font-size: 12px;
+    }
+    
+    .line-contact-content {
+        padding: 30px 20px;
+    }
+    
+    .line-contact-description p {
+        font-size: 14px;
+    }
+    
+    .line-contact-button {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .qr-code-section {
+        margin: 20px 0;
+        padding: 15px;
+    }
+    
+    .line-qr-code {
+        max-width: 120px;
+    }
+    
+    .qr-code-description {
+        font-size: 12px;
     }
 }
 

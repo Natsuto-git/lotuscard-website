@@ -246,8 +246,8 @@ document.addEventListener('DOMContentLoaded', function() {
         missionTextLines.forEach((line, index) => {
             line.classList.remove('visible');
             line.style.opacity = '0';
-            line.style.visibility = 'hidden';
-            line.style.transform = 'translateY(20px)';
+            line.style.transform = 'translateY(30px)';
+            line.style.transition = 'none'; // 初期設定時はトランジションを無効
             console.log(`Line ${index + 1} initialized as hidden`);
         });
         
@@ -266,16 +266,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     hasTriggered = true;
                     console.log('Mission section entered - starting sequential animation');
                     
-                    // 各行を確実に0.6秒間隔で順番に表示
+                    // 各行を確実に0.8秒間隔で順番に表示
                     missionTextLines.forEach((line, index) => {
-                        const delay = index * 600; // 0.6秒（600ms）ずつずらす
+                        const delay = index * 800; // 0.8秒（800ms）ずつずらす
                         const timeout = setTimeout(() => {
-                            // inlineスタイルを削除してCSSトランジションを有効にする
-                            line.style.opacity = '';
-                            line.style.visibility = '';
-                            line.style.transform = '';
+                            // トランジションを有効にする
+                            line.style.transition = 'opacity 1.4s ease, transform 1.4s ease';
                             // リフローを強制
                             void line.offsetWidth; 
+                            // アニメーション開始
+                            line.style.opacity = '1';
+                            line.style.transform = 'translateY(0)';
                             line.classList.add('visible');
                             console.log(`✅ Line ${index + 1} of ${missionTextLines.length} displayed after ${delay / 1000} seconds`);
                         }, delay);
@@ -822,7 +823,7 @@ function initModal() {
     // お問い合わせモーダル管理
     function initContactModal() {
         const contactModal = document.getElementById('contact-modal');
-        const contactForm = document.getElementById('contact-form');
+        const contactForm = document.getElementById('contact-form'); // フォームが存在しない場合はnull
         const closeButton = contactModal.querySelector('.modal-close-button');
         const cancelButton = contactModal.querySelector('.contact-cancel-btn');
         
@@ -836,7 +837,9 @@ function initModal() {
         function closeContactModal() {
             contactModal.classList.remove('active');
             document.body.style.overflow = '';
-            contactForm.reset();
+            if (contactForm) {
+                contactForm.reset();
+            }
         }
         
         // お問い合わせボタンのクリックイベント
@@ -849,8 +852,9 @@ function initModal() {
         });
         
         // フォーム送信処理（メールアプリで送信）
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
             
             const formData = new FormData(contactForm);
             const name = formData.get('name');
@@ -875,7 +879,8 @@ function initModal() {
             setTimeout(() => {
                 closeContactModal();
             }, 1000);
-        });
+            });
+        }
         //     const submitButton = contactForm.querySelector('.contact-submit-btn');
         //     const originalText = submitButton.textContent;
         //     

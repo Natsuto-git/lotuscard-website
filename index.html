@@ -24,8 +24,8 @@
     <header class="floating-header">
         <nav class="main-nav">
             <ul>
-                <li><a href="https://lin.ee/bBw3tbd"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a></li>
                 <li><a href="#faq">よくある質問</a></li>
+                <li><a href="https://lin.ee/VN5YiSF"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a></li>
             </ul>
             <div class="header-controls">
                 <a href="#pricing" class="cta-button">カードを選ぶ</a>
@@ -342,36 +342,30 @@
 
         <!-- お問い合わせモーダル -->
         <div id="contact-modal" class="modal-overlay">
-            <div class="modal-content contact-modal-content">
+            <div class="modal-content line-contact-modal-content">
                 <button class="modal-close-button" aria-label="Close modal">&times;</button>
-                <h2 class="modal-title">お問い合わせ</h2>
-                <div class="contact-form">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="contact-name">お名前 <span class="required">*</span></label>
-                            <input type="text" id="contact-name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-email">メールアドレス <span class="required">*</span></label>
-                            <input type="email" id="contact-email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-subject">件名 <span class="required">*</span></label>
-                            <input type="text" id="contact-subject" name="subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-message">メッセージ <span class="required">*</span></label>
-                            <textarea id="contact-message" name="message" rows="5" required></textarea>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="submit" class="contact-submit-btn">メールアプリで送信</button>
-                            <button type="button" class="contact-cancel-btn">キャンセル</button>
-                        </div>
-                    </form>
+                <div class="line-contact-header">
+                    <div class="line-icon-wrapper">
+                        <div class="line-icon">LINE</div>
+                    </div>
+                    <h2 class="modal-title">お気軽にお問い合わせください</h2>
+                    <p class="line-contact-subtitle">LotusCardについて何でもお聞かせください</p>
+                </div>
+                <div class="line-contact-content">
+                    <div class="line-contact-description">
+                        <p>LotusCardに関するご質問やご相談、<br>カスタマイズのご要望など、お気軽にLINEでお問い合わせください。</p>
+                        <p>私たちがあなたの「出会い」を<br>より素晴らしいものにするお手伝いをいたします。</p>
+                    </div>
+                    <div class="qr-code-section">
+                        <img src="images/LotusCard.LINE.png" alt="LotusCard LINE QRコード" class="line-qr-code">
+                        <p class="qr-code-description">QRコードをスキャンして友だち追加</p>
+                    </div>
+                    <div class="line-contact-actions">
+                        <a href="https://lin.ee/VN5YiSF" target="_blank" rel="noopener noreferrer" class="line-contact-button">
+                            <span class="line-button-text">LINEで友だち追加</span>
+                        </a>
+                        <button type="button" class="contact-cancel-btn">閉じる</button>
+                    </div>
                 </div>
             </div>
         </div>
