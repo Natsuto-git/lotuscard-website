@@ -16,6 +16,8 @@ html {
     padding: 0;
     background-color: #1C2A44; /* ヒーローセクションと同じダークブルー */
     min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 body {
@@ -27,6 +29,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* --- Typography System --- */
@@ -75,6 +79,8 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* --- Header (Floating Style) --- */
@@ -1848,6 +1854,8 @@ section {
         linear-gradient(180deg, #0F1A2E 0%, #1C2A44 40%, #0F1A2E 100%);
     color: white;
     padding: 100px 20px 50px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-main {
@@ -1857,6 +1865,8 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-branding {
@@ -1968,6 +1978,8 @@ section {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .copyright-text {
