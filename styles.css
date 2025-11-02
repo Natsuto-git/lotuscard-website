@@ -346,6 +346,9 @@ main {
 section {
     padding: 0;
     margin: 0;
+    /* 上下に 5rem (約80px) の余白を追加 */
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 /* --- Hero Section --- */
@@ -362,7 +365,9 @@ section {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 80px 0 0 0; /* ヘッダーの高さ分だけ上部にパディング */
+    /* ヘッダーとの間に十分な空間を確保 */
+    padding-top: 6rem;
+    padding-bottom: 4rem; /* 次のセクションとの間の空間 */
     margin: 0;
     background-attachment: scroll; /* 背景をスクロールに戻す */
 }
@@ -432,6 +437,7 @@ section {
 }
 
 .hero-section p {
+    font-family: 'Playfair Display', serif; /* タイトルと同じフォント */
     font-size: 20px;
     line-height: 1.6;
     margin-bottom: 40px;
@@ -449,7 +455,7 @@ section {
     .mission-section {
         margin-top: 0px; /* ネガティブマージンを削除 */
         padding-top: 0px; /* パディングをリセット */
-        min-height: calc(100vh + 200px); /* 背景の高さを200px拡張 */
+        min-height: calc(100vh + 300px); /* 背景の高さを200px拡張 */
     }
 }
 
@@ -584,6 +590,9 @@ section {
 .features-section {
     background-color: #F9F6F0;
     padding: 120px 20px;
+    /* ページ下部に十分な空間を確保 */
+    padding-top: 4rem;
+    padding-bottom: 6rem;
 }
 
 .features-section .section-title {
@@ -884,25 +893,25 @@ section {
     background-position: center center;
     background-repeat: no-repeat;
     color: white;
-    padding: 40px 0 0 0;
+    padding: 0; /* パディングを削除して中央揃えに */
     margin: 0;
-    margin-top: -50px;
-    min-height: 100vh;
+    margin-top: 0; /* ネガティブマージンを削除 */
+    min-height: 100vh; /* 基本の高さに戻す */
     display: flex;
-    align-items: center;
+    align-items: center; /* 中央揃えに変更 */
     justify-content: center;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* overflowをvisibleに変更 */
 }
 
 
 
 .profile-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* マージンをリセット */
     position: relative;
     z-index: 1;
 }
@@ -1374,6 +1383,38 @@ section {
     margin-bottom: 8px;
 }
 
+.limited-offer {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF4757 100%);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 0;
+    margin-bottom: 12px;
+    box-shadow: 
+        0 4px 15px rgba(255, 107, 107, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: pulseLimited 2s ease-in-out infinite;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulseLimited {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 4px 15px rgba(255, 107, 107, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 
+            0 6px 20px rgba(255, 107, 107, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
 .price-line {
     display: flex;
     align-items: baseline;
@@ -1403,7 +1444,7 @@ section {
         radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 45%),
         linear-gradient(135deg, #0F1A2E 0%, #1C2A44 40%, #0F1A2E 100%);
     color: white;
-    padding: 80px 12px;
+    padding: 0px 12px 80px 12px; /* 上部パディングを0pxに変更、下部は80px維持 */
 }
 
 .faq-section .section-title {
@@ -1411,6 +1452,7 @@ section {
     font-weight: 700;
     color: #D4AF37;
     text-align: center;
+    margin-top: 40px; /* 上部に40pxのマージンを追加 */
     margin-bottom: 60px;
     position: relative;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -1872,6 +1914,8 @@ section {
         linear-gradient(180deg, #0F1A2E 0%, #1C2A44 40%, #0F1A2E 100%);
     color: white;
     padding: 100px 20px 50px;
+    /* フッターの外側（上）に空間を設ける */
+    margin-top: 4rem;
     width: 100%;
     box-sizing: border-box;
 }
